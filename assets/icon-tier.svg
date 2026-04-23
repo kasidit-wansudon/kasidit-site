@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="t">
+  <title id="t">Model tiers — three ascending capability bars</title>
+  <g stroke="#f59e0b" stroke-width="3" stroke-linecap="round">
+    <line x1="4" y1="9"  x2="12" y2="9"/>
+    <line x1="4" y1="16" x2="20" y2="16"/>
+    <line x1="4" y1="23" x2="28" y2="23"/>
+  </g>
+</svg>

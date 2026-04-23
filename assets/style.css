@@ -1,0 +1,266 @@
+/* ============================================================
+   kasidit-site — custom styles
+   Loaded AFTER Tailwind CDN. Dark-only. Amber on GitHub-dark.
+   ============================================================ */
+
+/* 1. Root tokens — palette, accents, glow */
+:root {
+  --bg-950: #0d1117;
+  --bg-900: #161b22;
+  --bg-800: #21262d;
+  --border: #30363d;
+  --text: #c9d1d9;
+  --text-bright: #f0f6fc;
+  --text-muted: #8b949e;
+  --accent: #f59e0b;
+  --accent-hi: #fbbf24;
+  --accent-lo: #d97706;
+  --glow: rgba(245, 158, 11, 0.35);
+}
+
+/* 2. Global base — body, selection, typography */
+body {
+  background: var(--bg-950);
+  color: var(--text);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+}
+::selection {
+  background: rgba(245, 158, 11, 0.3);
+  color: var(--text-bright);
+}
+
+/* 3. HTML smooth scroll + skip-link a11y */
+html { scroll-behavior: smooth; }
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 8px;
+  padding: 8px 12px;
+  background: var(--accent);
+  color: var(--bg-950);
+  font-weight: 600;
+  border-radius: 6px;
+  z-index: 1000;
+  transition: top 0.2s ease;
+}
+.skip-link:focus { top: 8px; outline: 2px solid var(--accent-hi); }
+
+/* 4. Keyframes — fadeUp (entrance reveal) */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* 5. Keyframes — glowPulse (amber ring throb) */
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
+  50%      { box-shadow: 0 0 30px 0 var(--glow); }
+}
+
+/* 6. Keyframes — terminalBlink (step-end cursor) */
+@keyframes terminalBlink {
+  0%, 49%   { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+/* 7. Keyframes — float (gentle bob) */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-4px); }
+}
+
+/* 8. Fade-up reveal — toggled by enhance.js via .is-visible */
+.fade-up {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 600ms ease-out, transform 600ms ease-out;
+  will-change: opacity, transform;
+}
+.fade-up.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 9. Hero gradient — radial amber glow top-center */
+.hero-gradient {
+  background:
+    radial-gradient(ellipse 80% 60% at 50% -20%, var(--glow), transparent 60%),
+    var(--bg-950);
+  position: relative;
+  overflow: hidden;
+}
+
+/* 10. Grid pattern — svg dot overlay, subtle */
+.grid-pattern {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><circle cx='1' cy='1' r='1' fill='%23f59e0b' opacity='0.15'/></svg>");
+  background-size: 24px 24px;
+  opacity: 0.35;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+/* 11. Card — base shell */
+.card {
+  background: var(--bg-900);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+}
+
+/* 12. Card glow — hover lift + amber ring */
+.card-glow:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow:
+    0 0 0 1px var(--glow),
+    0 20px 40px -20px var(--glow);
+}
+
+/* 13. Skill card — compact catalog item */
+.skill-card {
+  background: var(--bg-900);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem;
+  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+.skill-card:hover {
+  border-color: var(--accent-lo);
+  transform: translateY(-1px);
+  box-shadow: 0 12px 30px -20px var(--glow);
+}
+.skill-card .skill-title {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.95rem;
+  color: var(--text-bright);
+  margin: 0 0 0.25rem 0;
+}
+.skill-card .skill-meta {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+/* 14. Pill — tiny amber badge */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--accent-hi);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.02em;
+}
+
+/* 15. Stat tile — big amber number + slate caption */
+.stat-tile {
+  background: var(--bg-900);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: border-color .3s ease, transform .3s ease;
+}
+.stat-tile:hover { border-color: var(--accent-lo); transform: translateY(-2px); }
+.stat-tile .stat-number {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: var(--accent);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.stat-tile .stat-caption {
+  color: var(--text-muted);
+  font-size: 0.875rem;
+}
+
+/* 16. Terminal blink — inline cursor */
+.terminal-blink {
+  display: inline-block;
+  animation: terminalBlink 1s step-end infinite;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+/* 17. Copy button — amber outline, fill on hover */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.9rem;
+  background: transparent;
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+}
+.copy-btn:hover,
+.copy-btn:focus-visible {
+  background: var(--accent);
+  color: var(--bg-950);
+  box-shadow: 0 0 20px -5px var(--glow);
+  outline: none;
+}
+
+/* 18. Nav link — slate default, amber hover */
+.nav-link {
+  color: #c9d1d9;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: color .2s ease;
+}
+.nav-link:hover,
+.nav-link:focus-visible { color: var(--accent-hi); outline: none; }
+
+/* 19. Hero heading — gradient text (bright → amber) */
+.hero-title {
+  background: linear-gradient(180deg, var(--text-bright) 0%, var(--accent-hi) 100%);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+/* 20. Code blocks — install section + inline snippets */
+pre {
+  background: var(--bg-800);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+code {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  color: var(--accent-hi);
+}
+pre code { color: var(--text-bright); }
+
+/* 21. Float utility — for hero accent elements */
+.float { animation: float 6s ease-in-out infinite; }
+
+/* 22. Reduced motion — honor OS preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .fade-up {
+    opacity: 1;
+    transform: none;
+  }
+  html { scroll-behavior: auto; }
+}

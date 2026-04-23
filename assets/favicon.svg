@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="12" fill="#0b0f17"/>
-  <text x="50%" y="54%" text-anchor="middle" dominant-baseline="middle"
-        font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace"
-        font-size="40" font-weight="700" fill="#2dd4bf">K</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-labelledby="t">
+  <title id="t">Kasidit — K monogram</title>
+  <circle cx="16" cy="16" r="15" fill="#0d1117"/>
+  <path d="M11 7 h3 v8 l6.5 -8 h3.7 l-6.7 8.2 l7 9.8 h-3.9 l-5.4 -7.7 l-1.2 1.4 V25 H11 Z"
+        fill="#f59e0b"/>
 </svg>

@@ -5,185 +5,247 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Kasidit — Mindful AI coding framework</title>
   <meta name="description" content="Kasidit: discipline over cleverness. A two-tier knowledge + checklist framework for Claude Code that works on any model tier." />
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+  <meta name="theme-color" content="#0d1117" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+
+  <!-- Open Graph -->
   <meta property="og:title" content="Kasidit — Mindful AI coding framework" />
-  <meta property="og:description" content="Discipline over cleverness. Runtime is the judge. Works on any tier." />
+  <meta property="og:description" content="Discipline over cleverness. Works on any model tier — compensates for weaker reasoning with external structure." />
   <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://kasidit-wansudon.github.io/kasidit-site/" />
+  <meta property="og:image" content="assets/og.svg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Kasidit — Mindful AI coding framework" />
+  <meta name="twitter:description" content="Discipline over cleverness. Works on any model tier." />
+  <meta name="twitter:image" content="assets/og.svg" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" />
+
+  <!-- Tailwind CDN + inline config -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    // Tailwind config: extend palette with site tokens.
-    // Accent = muted teal (#2dd4bf @ 60% sat). Justification: teal reads as
-    // technical/calm (aligns with "discipline over cleverness"), has strong
-    // contrast on #0b0f17 dark bg, and avoids the "AI startup purple/indigo"
-    // cliché. Amber was the runner-up but skews warning/alert in tech UIs.
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
           colors: {
-            ink: { 950: '#0b0f17', 900: '#11161f', 800: '#1a212d', 700: '#2a3342' },
-            accent: { DEFAULT: '#5eead4', 500: '#2dd4bf', 600: '#14b8a6' }
+            ink: { 950: '#0d1117', 900: '#161b22', 800: '#21262d', 700: '#30363d' }
+          },
+          fontFamily: {
+            sans: ['Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'ui-monospace', 'SFMono-Regular', 'Menlo', 'monospace']
           }
         }
       }
     };
-    // Theme bootstrap: respect stored pref, else prefers-color-scheme, else dark.
-    (function () {
-      var s = localStorage.getItem('theme');
-      var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      var dark = s ? s === 'dark' : prefersDark || s === null;
-      document.documentElement.classList.toggle('dark', dark);
-    })();
   </script>
-  <style>
-    html { scroll-behavior: smooth; }
-    code, pre, .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace; }
-  </style>
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <script src="assets/enhance.js" defer></script>
 </head>
-<body class="bg-white text-slate-900 dark:bg-ink-950 dark:text-slate-100 antialiased">
+<body class="bg-ink-950 text-slate-300 font-sans antialiased">
+
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- Nav -->
-  <header class="sticky top-0 z-40 backdrop-blur bg-white/70 dark:bg-ink-950/70 border-b border-slate-200 dark:border-ink-800">
-    <nav class="max-w-5xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
-      <a href="#" class="flex items-center gap-2 font-semibold tracking-tight">
-        <span class="inline-flex h-7 w-7 items-center justify-center rounded-md bg-accent-500/15 text-accent-500 ring-1 ring-accent-500/30 mono">K</span>
-        <span>Kasidit</span>
+  <header class="sticky top-0 z-40 backdrop-blur bg-ink-950/80 border-b border-ink-800">
+    <nav aria-label="Primary" class="max-w-6xl mx-auto flex items-center justify-between px-4 sm:px-6 py-3">
+      <a href="#" class="flex items-center gap-1 font-bold tracking-tight text-slate-100">
+        <span>Kasidit</span><span class="text-amber-500">.</span>
       </a>
-      <ul class="flex items-center gap-1 sm:gap-2 text-sm">
-        <li><a class="px-2 sm:px-3 py-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-ink-800" href="#">Home</a></li>
-        <li><a class="px-2 sm:px-3 py-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-ink-800" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Docs</a></li>
-        <li><a class="px-2 sm:px-3 py-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-ink-800" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">GitHub</a></li>
-        <li class="hidden sm:block"><a class="px-3 py-1.5 rounded-md hover:bg-slate-100 dark:hover:bg-ink-800" href="https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a></li>
-        <li>
-          <button id="theme-toggle" type="button" aria-label="Toggle theme"
-            class="ml-1 px-2 py-1.5 rounded-md ring-1 ring-slate-300 dark:ring-ink-700 hover:bg-slate-100 dark:hover:bg-ink-800 mono text-xs">
-            <span class="hidden dark:inline">light</span><span class="dark:hidden">dark</span>
-          </button>
-        </li>
+      <ul class="hidden md:flex items-center gap-1 text-sm">
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="#features">Features</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="#commands">Commands</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="#agents">Agents</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="#install">Install</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Wiki</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-slate-300 hover:text-slate-100 hover:bg-ink-800" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
+      <a href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener"
+         class="inline-flex items-center gap-2 rounded-md bg-amber-500 px-4 py-2 text-sm font-semibold text-ink-950 hover:bg-amber-400 transition">
+        View on GitHub
+      </a>
     </nav>
   </header>
 
-  <!-- Hero -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 pt-16 sm:pt-24 pb-12">
-    <p class="mono text-xs uppercase tracking-widest text-accent-500 mb-4">claude code plugin</p>
-    <h1 class="text-4xl sm:text-6xl font-semibold tracking-tight leading-[1.05]">
-      Mindful AI coding framework.<br />
-      <span class="text-slate-500 dark:text-slate-400">Discipline over cleverness.</span>
-    </h1>
-    <p class="mt-6 max-w-2xl text-lg text-slate-600 dark:text-slate-300">
-      Kasidit forces structure — two-tier knowledge, checklists, and verification loops — so any model tier (Opus, Sonnet, Haiku) stops guessing and starts shipping. Runtime is the judge.
-    </p>
-    <div class="mt-8 flex flex-wrap gap-3">
-      <a href="#install" class="inline-flex items-center gap-2 rounded-md bg-accent-500 px-5 py-2.5 font-medium text-ink-950 hover:bg-accent-600 transition">Get started</a>
-      <a href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener"
-         class="inline-flex items-center gap-2 rounded-md ring-1 ring-slate-300 dark:ring-ink-700 px-5 py-2.5 font-medium hover:bg-slate-100 dark:hover:bg-ink-800 transition">
-        View on GitHub
-      </a>
-    </div>
-  </section>
+  <main id="main">
 
-  <!-- Install -->
-  <section id="install" class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <div class="flex items-baseline justify-between mb-4">
-      <h2 class="text-2xl font-semibold tracking-tight">Install</h2>
-      <span class="mono text-xs text-slate-500">claude code &gt;= 1.0</span>
-    </div>
-    <div class="relative rounded-lg border border-slate-200 dark:border-ink-800 bg-slate-50 dark:bg-ink-900">
-      <button id="copy-btn" type="button"
-        class="absolute top-2 right-2 mono text-xs px-2 py-1 rounded-md ring-1 ring-slate-300 dark:ring-ink-700 bg-white dark:bg-ink-800 hover:bg-slate-100 dark:hover:bg-ink-700">
-        copy
-      </button>
-      <pre class="p-4 pr-20 overflow-x-auto text-sm leading-6"><code id="install-snippet">/plugin marketplace add kasidit-wansudon/kasidit
-/plugin install kasidit</code></pre>
-    </div>
-    <p class="mt-3 text-sm text-slate-500 dark:text-slate-400">Paste both lines into Claude Code. No build step. No npm. No config.</p>
-  </section>
+    <!-- Hero -->
+    <section id="hero" aria-labelledby="hero-title" class="hero-gradient relative overflow-hidden">
+      <div class="grid-pattern absolute inset-0 pointer-events-none" aria-hidden="true"></div>
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pt-20 sm:pt-28 pb-20">
+        <p class="fade-up font-mono text-xs uppercase tracking-widest text-amber-500 mb-5">Claude Code plugin &middot; v0.9.2</p>
+        <h1 id="hero-title" class="fade-up text-5xl sm:text-7xl font-bold tracking-tight leading-[1.02] text-slate-100">
+          <span class="bg-gradient-to-r from-amber-300 via-amber-500 to-amber-600 bg-clip-text text-transparent">Mindful AI</span><br />
+          coding framework<span class="terminal-blink text-amber-500">|</span>
+        </h1>
+        <p class="fade-up mt-6 max-w-2xl text-lg sm:text-xl text-slate-300">
+          Discipline over cleverness. Works on any model tier — compensates for weaker reasoning with external structure.
+        </p>
+        <div class="fade-up mt-10 flex flex-wrap gap-3">
+          <a href="#install" class="inline-flex items-center gap-2 rounded-md bg-amber-500 px-6 py-3 font-semibold text-ink-950 hover:bg-amber-400 transition">Get started</a>
+          <a href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener"
+             class="inline-flex items-center gap-2 rounded-md ring-1 ring-ink-700 px-6 py-3 font-semibold text-slate-100 hover:bg-ink-800 transition">
+            Read the wiki
+          </a>
+        </div>
+      </div>
+    </section>
 
-  <!-- Features -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <h2 class="text-2xl font-semibold tracking-tight mb-8">Why Kasidit</h2>
-    <div class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-      <article class="rounded-lg border border-slate-200 dark:border-ink-800 bg-white dark:bg-ink-900 p-5 hover:border-accent-500/40 transition">
-        <h3 class="font-semibold tracking-tight">Gravity Pattern</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Two-tier knowledge: a compact Centerlite always in context, a deep Dcenterlite loaded on demand. Small context, full recall.</p>
-      </article>
-      <article class="rounded-lg border border-slate-200 dark:border-ink-800 bg-white dark:bg-ink-900 p-5 hover:border-accent-500/40 transition">
-        <h3 class="font-semibold tracking-tight">Checklists, not guesses</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Audits run against explicit checklists — security, review, UI. The checklist does the thinking; the model executes.</p>
-      </article>
-      <article class="rounded-lg border border-slate-200 dark:border-ink-800 bg-white dark:bg-ink-900 p-5 hover:border-accent-500/40 transition">
-        <h3 class="font-semibold tracking-tight">Tier-aware</h3>
-        <p class="mt-2 text-sm text-slate-600 dark:text-slate-300">Adapts prompts and verification depth to Opus, Sonnet, or Haiku. Weaker reasoning is compensated by more structure, not more tokens.</p>
-      </article>
-    </div>
-  </section>
+    <!-- Features -->
+    <section id="features" aria-labelledby="features-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20">
+      <h2 id="features-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">Why Kasidit</h2>
+      <p class="text-slate-400 mb-12 max-w-2xl">Four primitives that force structure before the model is allowed to guess.</p>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <article class="card card-glow fade-up">
+          <img src="assets/icon-gravity.svg" alt="" width="32" height="32" class="mb-4" />
+          <h3 class="font-semibold text-slate-100 mb-2">Gravity Pattern</h3>
+          <p class="text-sm text-slate-400">Two-tier knowledge. Global hub + project orbit. Nothing moves without confirmation.</p>
+          <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Gravity-Pattern" target="_blank" rel="noopener" class="mt-4 inline-block text-sm font-medium text-amber-500 hover:text-amber-400">Learn more &rarr;</a>
+        </article>
+        <article class="card card-glow fade-up">
+          <img src="assets/icon-checklist.svg" alt="" width="32" height="32" class="mb-4" />
+          <h3 class="font-semibold text-slate-100 mb-2">Checklists</h3>
+          <p class="text-sm text-slate-400">Audit by mechanical list. Haiku executes faithfully when reasoning is weak.</p>
+          <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Checklists" target="_blank" rel="noopener" class="mt-4 inline-block text-sm font-medium text-amber-500 hover:text-amber-400">Learn more &rarr;</a>
+        </article>
+        <article class="card card-glow fade-up">
+          <img src="assets/icon-tier.svg" alt="" width="32" height="32" class="mb-4" />
+          <h3 class="font-semibold text-slate-100 mb-2">Tier-aware</h3>
+          <p class="text-sm text-slate-400">Opus reasons. Sonnet works. Haiku greps. Rules diverge by model.</p>
+          <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Tier-Aware" target="_blank" rel="noopener" class="mt-4 inline-block text-sm font-medium text-amber-500 hover:text-amber-400">Learn more &rarr;</a>
+        </article>
+        <article class="card card-glow fade-up">
+          <img src="assets/icon-orchestrator.svg" alt="" width="32" height="32" class="mb-4" />
+          <h3 class="font-semibold text-slate-100 mb-2">Master Orchestrator</h3>
+          <p class="text-sm text-slate-400">Main delegates. Specialists execute. Context isolation by design.</p>
+          <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Master-Orchestrator" target="_blank" rel="noopener" class="mt-4 inline-block text-sm font-medium text-amber-500 hover:text-amber-400">Learn more &rarr;</a>
+        </article>
+      </div>
+    </section>
 
-  <!-- Commands -->
-  <section class="max-w-5xl mx-auto px-4 sm:px-6 py-12">
-    <h2 class="text-2xl font-semibold tracking-tight mb-8">Commands</h2>
-    <div class="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-init</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Scaffold .kasidit/ knowledge into a new project.</p>
+    <!-- How it works -->
+    <section id="how" aria-labelledby="how-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-ink-800">
+      <h2 id="how-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">How it works</h2>
+      <p class="text-slate-400 mb-12 max-w-2xl">A mission moves through three gates. Each gate refuses if the prior is underspecified.</p>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="fade-up">
+          <div class="font-mono text-5xl font-bold text-amber-500 mb-4">01</div>
+          <h3 class="font-semibold text-slate-100 mb-2 text-lg">Narrow the mission</h3>
+          <p class="text-sm text-slate-400">Vague asks get refused. Pick from numbered options until the target is verifiable.</p>
+        </div>
+        <div class="fade-up">
+          <div class="font-mono text-5xl font-bold text-amber-500 mb-4">02</div>
+          <h3 class="font-semibold text-slate-100 mb-2 text-lg">Dispatch specialists</h3>
+          <p class="text-sm text-slate-400"><code class="font-mono text-amber-500">sudo &lt;mission&gt;</code> fans out to 6 parallel specialists. Each gets isolated context and a brief.</p>
+        </div>
+        <div class="fade-up">
+          <div class="font-mono text-5xl font-bold text-amber-500 mb-4">03</div>
+          <h3 class="font-semibold text-slate-100 mb-2 text-lg">Synthesize with confidence</h3>
+          <p class="text-sm text-slate-400">Findings tagged <code class="font-mono text-amber-500">[high/medium/low/unsure]</code>. <code class="font-mono text-amber-500">[unsure]</code> never silently guessed.</p>
+        </div>
       </div>
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-fix</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Conservative bug-fix mission with verification loops.</p>
+    </section>
+
+    <!-- Commands -->
+    <section id="commands" aria-labelledby="commands-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-ink-800">
+      <h2 id="commands-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">Commands</h2>
+      <p class="text-slate-400 mb-12 max-w-2xl">Slash commands that launch a disciplined mission. Pick the one that matches your intent.</p>
+      <div id="commands-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <noscript>
+          <p class="text-sm text-slate-400 col-span-full">Command gallery requires JavaScript. See the <a class="text-amber-500 hover:text-amber-400" href="https://github.com/kasidit-wansudon/kasidit">repository</a> for the full list.</p>
+        </noscript>
       </div>
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-review</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Code review driven by the Kasidit checklist.</p>
+    </section>
+
+    <!-- Agents -->
+    <section id="agents" aria-labelledby="agents-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-ink-800">
+      <h2 id="agents-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">Specialist agents</h2>
+      <p class="text-slate-400 mb-12 max-w-2xl">Focused subagents the orchestrator dispatches. Each owns one checklist and returns tagged findings.</p>
+      <div id="agents-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <noscript>
+          <p class="text-sm text-slate-400 col-span-full">Agent gallery requires JavaScript. See the <a class="text-amber-500 hover:text-amber-400" href="https://github.com/kasidit-wansudon/kasidit">repository</a> for the full list.</p>
+        </noscript>
       </div>
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-security</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Security audit with explicit threat checklist.</p>
+    </section>
+
+    <!-- Install -->
+    <section id="install" aria-labelledby="install-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-ink-800">
+      <h2 id="install-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">Install</h2>
+      <p class="text-slate-400 mb-10 max-w-2xl">Run these two lines in Claude Code.</p>
+      <div class="space-y-4 max-w-3xl">
+        <div class="relative rounded-lg border border-ink-700 bg-ink-900">
+          <button data-copy="/plugin marketplace add kasidit-wansudon/kasidit" class="copy-btn absolute top-2 right-2 font-mono text-xs px-3 py-1 rounded-md ring-1 ring-ink-700 bg-ink-800 text-slate-300 hover:bg-ink-700 hover:text-slate-100">Copy</button>
+          <pre class="p-4 pr-20 overflow-x-auto font-mono text-sm leading-6 text-amber-500"><code>/plugin marketplace add kasidit-wansudon/kasidit</code></pre>
+        </div>
+        <div class="relative rounded-lg border border-ink-700 bg-ink-900">
+          <button data-copy="/plugin install kasidit" class="copy-btn absolute top-2 right-2 font-mono text-xs px-3 py-1 rounded-md ring-1 ring-ink-700 bg-ink-800 text-slate-300 hover:bg-ink-700 hover:text-slate-100">Copy</button>
+          <pre class="p-4 pr-20 overflow-x-auto font-mono text-sm leading-6 text-amber-500"><code>/plugin install kasidit</code></pre>
+        </div>
       </div>
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-ui</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">UI and CSS fix mission with Override Mode.</p>
+    </section>
+
+    <!-- Evidence -->
+    <section id="evidence" aria-labelledby="evidence-title" class="max-w-6xl mx-auto px-4 sm:px-6 py-20 border-t border-ink-800">
+      <h2 id="evidence-title" class="text-3xl sm:text-4xl font-bold tracking-tight text-slate-100 mb-3">Evidence</h2>
+      <p class="text-slate-400 mb-12 max-w-2xl">Measured on SWE-bench Lite and curated Kasidit task suites. Runtime is the judge.</p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="stat-tile fade-up">
+          <div class="font-mono text-4xl font-bold text-amber-500 mb-2">60.7%</div>
+          <p class="text-sm text-slate-400">SWE-bench Lite strict PASS (34/56)</p>
+        </div>
+        <div class="stat-tile fade-up">
+          <div class="font-mono text-4xl font-bold text-amber-500 mb-2">87.5%</div>
+          <p class="text-sm text-slate-400">valid fix rate</p>
+        </div>
+        <div class="stat-tile fade-up">
+          <div class="font-mono text-4xl font-bold text-amber-500 mb-2">100%</div>
+          <p class="text-sm text-slate-400">curated 7-task Opus valid rate</p>
+        </div>
+        <div class="stat-tile fade-up">
+          <div class="font-mono text-4xl font-bold text-amber-500 mb-2">0 FAIL</div>
+          <p class="text-sm text-slate-400">15-task curated run</p>
+        </div>
       </div>
-      <div class="rounded-lg border border-slate-200 dark:border-ink-800 p-4">
-        <code class="mono text-accent-500">/kasi-cascade</code>
-        <p class="mt-1 text-sm text-slate-600 dark:text-slate-300">Tier cascade: Opus plans, Sonnet works, Haiku greps.</p>
-      </div>
-    </div>
-  </section>
+    </section>
+
+  </main>
 
   <!-- Footer -->
-  <footer class="border-t border-slate-200 dark:border-ink-800 mt-16">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6 py-8 flex flex-wrap items-center justify-between gap-3 text-sm text-slate-500 dark:text-slate-400">
-      <div>&copy; 2026 Kasidit Wansudon — MIT License</div>
-      <div class="flex gap-4">
-        <a class="hover:text-slate-900 dark:hover:text-slate-100" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">Repo</a>
-        <a class="hover:text-slate-900 dark:hover:text-slate-100" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Wiki</a>
-        <a class="hover:text-slate-900 dark:hover:text-slate-100" href="https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a>
+  <footer class="border-t border-ink-800 mt-10">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16">
+      <div class="grid md:grid-cols-3 gap-8">
+        <section aria-labelledby="foot-about">
+          <h2 id="foot-about" class="font-semibold text-slate-100 mb-3">About</h2>
+          <p class="text-sm text-slate-400">Kasidit is a mindful AI coding framework for Claude Code. Discipline, checklists, and tier-aware orchestration in place of clever tricks.</p>
+          <p class="mt-3 text-sm text-slate-400">Built by Kasidit Wansudon, self-taught Thai engineer.</p>
+        </section>
+        <section aria-labelledby="foot-links">
+          <h2 id="foot-links" class="font-semibold text-slate-100 mb-3">Links</h2>
+          <ul class="space-y-2 text-sm">
+            <li><a class="text-slate-400 hover:text-amber-500" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">GitHub</a></li>
+            <li><a class="text-slate-400 hover:text-amber-500" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Wiki</a></li>
+            <li><a class="text-slate-400 hover:text-amber-500" href="https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Changelog</a></li>
+            <li><a class="text-slate-400 hover:text-amber-500" href="https://github.com/kasidit-wansudon/kasidit/releases" target="_blank" rel="noopener">Releases</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="foot-community">
+          <h2 id="foot-community" class="font-semibold text-slate-100 mb-3">Community</h2>
+          <p class="text-sm text-slate-400">Issues welcome — <a class="text-amber-500 hover:text-amber-400" href="https://github.com/kasidit-wansudon/kasidit/issues" target="_blank" rel="noopener">github.com/kasidit-wansudon/kasidit/issues</a></p>
+          <p class="mt-3 text-sm text-slate-400"><a class="hover:text-amber-500" href="mailto:kasidit.wans@gmail.com">kasidit.wans@gmail.com</a></p>
+        </section>
+      </div>
+      <div class="mt-12 pt-6 border-t border-ink-800 flex flex-wrap gap-2 items-center justify-between text-xs text-slate-500">
+        <div>&copy; 2026 Kasidit Wansudon &middot; MIT</div>
+        <div>Pages live at <span class="font-mono text-slate-400">kasidit-wansudon.github.io/kasidit-site</span></div>
       </div>
     </div>
   </footer>
 
-  <script>
-    // Theme toggle — persists to localStorage.
-    document.getElementById('theme-toggle').addEventListener('click', function () {
-      var dark = !document.documentElement.classList.contains('dark');
-      document.documentElement.classList.toggle('dark', dark);
-      localStorage.setItem('theme', dark ? 'dark' : 'light');
-    });
-    // Copy install snippet — clipboard API with execCommand fallback.
-    document.getElementById('copy-btn').addEventListener('click', async function () {
-      var btn = this, text = document.getElementById('install-snippet').innerText;
-      try {
-        if (navigator.clipboard && window.isSecureContext) {
-          await navigator.clipboard.writeText(text);
-        } else {
-          var ta = document.createElement('textarea');
-          ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
-          document.body.appendChild(ta); ta.select();
-          document.execCommand('copy'); document.body.removeChild(ta);
-        }
-        btn.textContent = 'copied'; setTimeout(function () { btn.textContent = 'copy'; }, 1500);
-      } catch (e) { btn.textContent = 'error'; setTimeout(function () { btn.textContent = 'copy'; }, 1500); }
-    });
-  </script>
 </body>
 </html>

@@ -1,0 +1,87 @@
+{
+  "nav": {
+    "brand": "Kasidit",
+    "links": [
+      { "label": "Features", "href": "#features" },
+      { "label": "How it works", "href": "#how" },
+      { "label": "Evidence", "href": "#evidence" },
+      { "label": "Install", "href": "#install" }
+    ],
+    "cta": { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" }
+  },
+  "hero": {
+    "eyebrow": "Claude Code plugin · v0.9.2",
+    "h1": "Mindful AI coding framework",
+    "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure.",
+    "ctas": [
+      { "label": "Get started", "href": "#install", "variant": "primary" },
+      { "label": "Read the wiki", "href": "https://github.com/kasidit-wansudon/kasidit/wiki", "variant": "ghost" }
+    ]
+  },
+  "features": [
+    {
+      "icon": "icon-gravity",
+      "title": "Gravity Pattern",
+      "body": "External structure replaces internal willpower. The agent stays on-mission because the framework pulls it back, not because it remembers to."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "Checklists",
+      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes."
+    },
+    {
+      "icon": "icon-tier",
+      "title": "Tier-aware",
+      "body": "Routes work by model strength. Weaker tiers get more scaffolding, stronger tiers get more autonomy."
+    },
+    {
+      "icon": "icon-orchestrator",
+      "title": "Master Orchestrator",
+      "body": "One planner narrows the mission and delegates to specialists. Results are synthesized with explicit confidence labels."
+    }
+  ],
+  "how": [
+    {
+      "step": "01",
+      "title": "Narrow the mission",
+      "body": "Define the concrete deliverable before touching code. Ambiguity gets resolved on paper, not at runtime."
+    },
+    {
+      "step": "02",
+      "title": "Dispatch specialists",
+      "body": "Sub-agents handle research, code, and review in isolated contexts. Each returns structured findings, not prose."
+    },
+    {
+      "step": "03",
+      "title": "Synthesize with confidence",
+      "body": "The orchestrator merges outputs and flags disagreements. Only work that passes the checklist ships."
+    }
+  ],
+  "install": {
+    "intro": "Run these two lines in Claude Code.",
+    "snippets": [
+      "/plugin marketplace add kasidit-wansudon/kasidit",
+      "/plugin install kasidit"
+    ]
+  },
+  "evidence": [
+    { "number": "60.7%", "caption": "SWE-bench Lite strict PASS (34/56)" },
+    { "number": "87.5%", "caption": "Valid fix rate (49/56)" },
+    { "number": "100%", "caption": "7-task Opus valid (6/7 PASS)" },
+    { "number": "0", "caption": "FAIL on 15-task curated" }
+  ],
+  "footer": {
+    "about": "Kasidit is an open-source framework for disciplined AI coding. Built by Kasidit Wansudon, self-taught Thai engineer.",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" },
+      { "label": "Wiki", "href": "https://github.com/kasidit-wansudon/kasidit/wiki" },
+      { "label": "Changelog", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md" },
+      { "label": "Releases", "href": "https://github.com/kasidit-wansudon/kasidit/releases" }
+    ],
+    "community": [
+      { "label": "Report issue", "href": "https://github.com/kasidit-wansudon/kasidit/issues" },
+      { "label": "Email", "href": "mailto:kasidit.wans@gmail.com" }
+    ],
+    "copyright": "© 2026 Kasidit Wansudon · MIT License"
+  }
+}
