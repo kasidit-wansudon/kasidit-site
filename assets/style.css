@@ -145,6 +145,32 @@ html { scroll-behavior: smooth; }
   color: var(--text-muted);
 }
 
+/* 13b. Skill card as anchor — kill underline, position ext arrow */
+a.skill-card {
+  display: block;
+  position: relative;
+  text-decoration: none;
+  color: inherit;
+}
+a.skill-card:hover { color: inherit; }
+
+/* 13c. External arrow — subtle amber hint in card footer */
+.ext {
+  display: inline-block;
+  margin-left: 0.5rem;
+  color: var(--accent);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  transition: transform .2s ease, opacity .2s ease, color .2s ease;
+}
+a.skill-card:hover .ext,
+a.skill-card:focus-visible .ext {
+  transform: translateX(3px);
+  opacity: 1;
+  color: var(--accent-hi);
+}
+
 /* 14. Pill — tiny amber badge */
 .pill {
   display: inline-flex;

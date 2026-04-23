@@ -19,6 +19,9 @@
     'kasi-search': 'meta', 'kasi-wiki-sync': 'meta'
   };
 
+  // GitHub wiki base — deep-link target for each gallery card.
+  var WIKI_BASE = 'https://github.com/kasidit-wansudon/kasidit/wiki/';
+
   function escapeHtml(s) {
     return String(s == null ? '' : s)
       .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
@@ -34,15 +37,46 @@
     return 'skill';
   }
 
+  // Convert "foo-bar-baz" → "Foo-Bar-Baz" (PascalCase each segment, keep hyphens).
+  function pascalHyphen(s) {
+    return String(s || '').split('-').map(function (p) {
+      if (!p) return p;
+      return p.charAt(0).toUpperCase() + p.slice(1).toLowerCase();
+    }).join('-');
+  }
+
+  // Compute wiki page slug for a catalog item.
+  //   commands: kasi-wiki-sync   → Kasi-Wiki-Sync
+  //   agents:   bug-hunter       → Agent-Bug-Hunter
+  function wikiPageFor(item) {
+    var src  = (item && item.source_file) || '';
+    var name = (item && item.name) || '';
+    if (src.indexOf('agents/') === 0) {
+      return 'Agent-' + pascalHyphen(name);
+    }
+    if (src.indexOf('commands/') === 0) {
+      // strip leading "kasi-" if present, re-add canonical "Kasi-" prefix
+      var tail = name.indexOf('kasi-') === 0 ? name.slice(5) : name;
+      return 'Kasi-' + pascalHyphen(tail);
+    }
+    return pascalHyphen(name);
+  }
+
+  function wikiUrlFor(item) {
+    return WIKI_BASE + wikiPageFor(item);
+  }
+
   function cardHtml(item) {
     var name = escapeHtml(item.name);
     var desc = escapeHtml(item.description);
     var cat  = escapeHtml(categoryFor(item));
-    return '<article class="card skill-card fade-up">' +
+    var href = escapeHtml(wikiUrlFor(item));
+    return '<a class="card skill-card fade-up card-link" href="' + href + '" target="_blank" rel="noopener">' +
              '<h3 class="font-mono text-amber-400 text-lg mb-1">' + name + '</h3>' +
              '<p class="text-slate-300 text-sm mb-3">' + desc + '</p>' +
              '<span class="pill">' + cat + '</span>' +
-           '</article>';
+             '<span class="ext" aria-hidden="true">&rarr;</span>' +
+           '</a>';
   }
 
   function renderInto(el, items) {
