@@ -1,0 +1,126 @@
+{
+  "commands": [
+    {
+      "name": "kasi-cascade",
+      "description": "Tier cascade orchestration — Opus plans, Sonnet works, Haiku greps",
+      "source_file": "commands/kasi-cascade.md"
+    },
+    {
+      "name": "kasi-docs",
+      "description": "Fetch and cache version-matched official documentation",
+      "source_file": "commands/kasi-docs.md"
+    },
+    {
+      "name": "kasi-fix",
+      "description": "Bug fix mission with conservative discipline",
+      "source_file": "commands/kasi-fix.md"
+    },
+    {
+      "name": "kasi-init",
+      "description": "Initialize project for Kasidit — chains scaffold + docs + review + registers auto-invoke",
+      "source_file": "commands/kasi-init.md"
+    },
+    {
+      "name": "kasi-promote",
+      "description": "Promote fact / pattern / knowledge from project .kasidit/ (dcenterlite) into global Centerlite hub",
+      "source_file": "commands/kasi-promote.md"
+    },
+    {
+      "name": "kasi-pull",
+      "description": "Pull item from Centerlite hub into local project .kasidit/ (dcenterlite)",
+      "source_file": "commands/kasi-pull.md"
+    },
+    {
+      "name": "kasi-review",
+      "description": "Launch code review mission with Kasidit discipline",
+      "source_file": "commands/kasi-review.md"
+    },
+    {
+      "name": "kasi-scaffold",
+      "description": "Build .kasidit/ knowledge structure for current project",
+      "source_file": "commands/kasi-scaffold.md"
+    },
+    {
+      "name": "kasi-search",
+      "description": "Semantic search over .kasidit/knowledge/ using local embeddings",
+      "source_file": "commands/kasi-search.md"
+    },
+    {
+      "name": "kasi-security",
+      "description": "Security audit mission with checklist-driven scanning",
+      "source_file": "commands/kasi-security.md"
+    },
+    {
+      "name": "kasi-status",
+      "description": "Show current mission state, counter, and context usage",
+      "source_file": "commands/kasi-status.md"
+    },
+    {
+      "name": "kasi-sync",
+      "description": "Audit diffs between project .kasidit/ (dcenterlite) and global Centerlite hub",
+      "source_file": "commands/kasi-sync.md"
+    },
+    {
+      "name": "kasi-ui",
+      "description": "UI/CSS fix mission with Override Mode",
+      "source_file": "commands/kasi-ui.md"
+    },
+    {
+      "name": "kasi-wiki-sync",
+      "description": "Sync docs/wiki/ content to github wiki repo (github.com/kasidit-wansudon/kasidit.wiki.git)",
+      "source_file": "commands/kasi-wiki-sync.md"
+    }
+  ],
+  "agents": [
+    {
+      "name": "architect-planner",
+      "description": "Plan BEFORE code for new features, significant refactors, or changes touching more than 2 files. Returns step-by-step plan, file list, data flow, trade-offs. Does NOT write code.",
+      "source_file": "agents/architect-planner.md"
+    },
+    {
+      "name": "bug-hunter",
+      "description": "Hunt down root cause of a reported bug. Use when test breaks, endpoint returns wrong data, stack trace appears, or user says \"why does X fail\". Returns minimal-change fix with reproduction.",
+      "source_file": "agents/bug-hunter.md"
+    },
+    {
+      "name": "code-reviewer",
+      "description": "Multi-dimensional code review with quality gates",
+      "source_file": "agents/code-reviewer.md"
+    },
+    {
+      "name": "deep-researcher",
+      "description": "Deep investigation across docs, source, web for library/API/framework questions. Use when task needs version-matched docs, competitor analysis, or codebase survey before deciding. Returns findings + sources, never writes final code.",
+      "source_file": "agents/deep-researcher.md"
+    },
+    {
+      "name": "legacy-specialist",
+      "description": "Navigate and modify legacy codebases (ZF1, old Rails, Vue 2, etc.) without breaking them",
+      "source_file": "agents/legacy-specialist.md"
+    },
+    {
+      "name": "migration-specialist",
+      "description": "Handle schema changes, framework upgrades, and data backfills safely. Specialist on backward-compat + zero-downtime patterns. High-risk work — deserves dedicated context.",
+      "source_file": "agents/migration-specialist.md"
+    },
+    {
+      "name": "perf-profiler",
+      "description": "Find performance bottlenecks — slow queries, N+1, large bundles, wasted renders, memory leaks. Use when user reports slowness, high bill, or before scale event. Returns prioritized findings. Finds; does not optimize unless asked.",
+      "source_file": "agents/perf-profiler.md"
+    },
+    {
+      "name": "refactor-surgeon",
+      "description": "Apply a specific, scoped refactor — extract function, rename, dedupe, split file, inline. Use when user names the refactor explicitly. Does NOT decide whether to refactor, only how. Preserves behavior exactly.",
+      "source_file": "agents/refactor-surgeon.md"
+    },
+    {
+      "name": "security-auditor",
+      "description": "Security-focused reviewer for vulnerability detection in source code",
+      "source_file": "agents/security-auditor.md"
+    },
+    {
+      "name": "test-writer",
+      "description": "Write unit or integration tests for a specific function, class, or endpoint. Use when user asks for tests, after a bug fix (regression test), or to backfill coverage. Produces runnable test file + gap notes.",
+      "source_file": "agents/test-writer.md"
+    }
+  ]
+}
