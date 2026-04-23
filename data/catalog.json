@@ -21,6 +21,11 @@
       "source_file": "commands/kasi-init.md"
     },
     {
+      "name": "kasi-multi",
+      "description": "Fan-out mode — dispatch N specialist agents in parallel for the current mission (sudo-fast execution)",
+      "source_file": "commands/kasi-multi.md"
+    },
+    {
       "name": "kasi-promote",
       "description": "Promote fact / pattern / knowledge from project .kasidit/ (dcenterlite) into global Centerlite hub",
       "source_file": "commands/kasi-promote.md"
