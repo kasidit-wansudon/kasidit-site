@@ -2,9 +2,10 @@
  * enhance.js — kasidit-site client enhancements
  * Purpose: progressive enhancement for the static landing page.
  *   initSkillGallery()   — fetch catalog.json, render command + agent cards
- *   initCopyButtons()    — clipboard copy for [data-copy] buttons
- *   initFadeUp()         — IntersectionObserver reveal animations
+ *   initCopyButtons()    — clipboard copy for [data-copy] buttons (clipboard SVG → check SVG on success)
+ *   initReveal()         — IntersectionObserver reveal animations (.reveal → .visible)
  *   initSmoothAnchors()  — smooth-scroll for in-page anchors (reduced-motion aware)
+ *   initNavbarScroll()   — toggle #navbar-bg .visible after scrollY > 10
  *   init()               — DOMContentLoaded entry; isolates module failures
  */
 (function () {
@@ -71,10 +72,10 @@
     var desc = escapeHtml(item.description);
     var cat  = escapeHtml(categoryFor(item));
     var href = escapeHtml(wikiUrlFor(item));
-    return '<a class="card skill-card fade-up card-link" href="' + href + '" target="_blank" rel="noopener">' +
-             '<h3 class="font-mono text-amber-400 text-lg mb-1">' + name + '</h3>' +
-             '<p class="text-slate-300 text-sm mb-3">' + desc + '</p>' +
-             '<span class="pill">' + cat + '</span>' +
+    return '<a class="reveal card-base card-hover p-6 block" href="' + href + '" target="_blank" rel="noopener">' +
+             '<h3 class="font-mono text-brand-400 text-lg mb-2">' + name + '</h3>' +
+             '<p class="text-surface-300 text-sm mb-4">' + desc + '</p>' +
+             '<span class="tag-pill">' + cat + '</span>' +
              '<span class="ext" aria-hidden="true">&rarr;</span>' +
            '</a>';
   }
@@ -82,14 +83,14 @@
   function renderInto(el, items) {
     if (!el) return;
     if (!items || !items.length) {
-      el.innerHTML = '<p class="text-slate-400 text-sm">No entries yet.</p>';
+      el.innerHTML = '<p class="text-surface-400 text-sm">No entries yet.</p>';
       return;
     }
     el.innerHTML = items.map(cardHtml).join('');
   }
 
   function renderFallback() {
-    var msg = '<p class="text-slate-400 text-sm">Catalog unavailable — see GitHub.</p>';
+    var msg = '<p class="text-surface-400 text-sm">Catalog unavailable — see GitHub.</p>';
     var c = document.getElementById('commands-grid');
     var a = document.getElementById('agents-grid');
     if (c) c.innerHTML = msg;
@@ -108,8 +109,8 @@
       .then(function (data) {
         renderInto(cmdEl, (data && data.commands) || []);
         renderInto(agEl,  (data && data.agents)   || []);
-        // Newly injected .fade-up cards need observer attachment.
-        attachFadeUp(document.querySelectorAll('.fade-up:not(.is-visible)'));
+        // Newly injected .reveal cards need observer attachment.
+        attachReveal(document.querySelectorAll('.reveal:not(.visible)'));
       })
       .catch(function (err) {
         console.error('[enhance] catalog fetch failed:', err);
@@ -131,15 +132,31 @@
     return ok;
   }
 
+  var COPY_ICON = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"/></svg>';
+  var CHECK_ICON = '<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>';
+
   function flashCopied(btn) {
-    var original = btn.getAttribute('data-original-label') || btn.textContent;
-    btn.setAttribute('data-original-label', original);
-    btn.textContent = 'Copied';
+    var label = btn.querySelector('span');
+    var icon  = btn.querySelector('svg');
+    if (label) {
+      if (!btn.hasAttribute('data-original-label')) {
+        btn.setAttribute('data-original-label', label.textContent);
+      }
+      label.textContent = 'Copied';
+    }
+    if (icon) {
+      icon.outerHTML = CHECK_ICON;
+    }
     btn.classList.add('copied');
     setTimeout(function () {
-      btn.textContent = original;
-      btn.classList.remove('copied');
-    }, 1500);
+      if (btn.classList.contains('copied')) {
+        var lbl = btn.querySelector('span');
+        var ic  = btn.querySelector('svg');
+        if (lbl) lbl.textContent = btn.getAttribute('data-original-label') || 'Copy';
+        if (ic)  ic.outerHTML = COPY_ICON;
+        btn.classList.remove('copied');
+      }
+    }, 2000);
   }
 
   function initCopyButtons() {
@@ -161,34 +178,34 @@
     }
   }
 
-  // Shared observer so all fade-up elements (incl. injected ones) share one instance.
+  // Shared observer so all reveal elements (incl. injected ones) share one instance.
   var _io = null;
   function getObserver() {
     if (_io || !('IntersectionObserver' in window)) return _io;
     _io = new IntersectionObserver(function (entries, obs) {
       for (var i = 0; i < entries.length; i++) {
         var e = entries[i];
-        if (e.isIntersecting && e.intersectionRatio >= 0.25) {
-          e.target.classList.add('is-visible');
+        if (e.isIntersecting && e.intersectionRatio >= 0.1) {
+          e.target.classList.add('visible');
           obs.unobserve(e.target);
         }
       }
-    }, { threshold: 0.25, rootMargin: '0px 0px -10% 0px' });
+    }, { threshold: 0.1, rootMargin: '0px 0px -5% 0px' });
     return _io;
   }
 
-  function attachFadeUp(nodes) {
+  function attachReveal(nodes) {
     if (!nodes || !nodes.length) return;
     if (!('IntersectionObserver' in window)) {
-      for (var i = 0; i < nodes.length; i++) nodes[i].classList.add('is-visible');
+      for (var i = 0; i < nodes.length; i++) nodes[i].classList.add('visible');
       return;
     }
     var io = getObserver();
     for (var j = 0; j < nodes.length; j++) io.observe(nodes[j]);
   }
 
-  function initFadeUp() {
-    attachFadeUp(document.querySelectorAll('.fade-up'));
+  function initReveal() {
+    attachReveal(document.querySelectorAll('.reveal'));
   }
 
   function initSmoothAnchors() {
@@ -210,15 +227,39 @@
     }
   }
 
+  function initNavbarScroll() {
+    var bg = document.getElementById('navbar-bg');
+    if (!bg) return;
+    function update() {
+      if (window.scrollY > 10) {
+        bg.classList.add('visible');
+      } else {
+        bg.classList.remove('visible');
+      }
+    }
+    var ticking = false;
+    window.addEventListener('scroll', function () {
+      if (!ticking) {
+        window.requestAnimationFrame(function () {
+          update();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+    update();
+  }
+
   function safe(fn, label) {
     try { fn(); } catch (err) { console.error('[enhance] ' + label + ' failed:', err); }
   }
 
   function init() {
-    safe(initFadeUp,       'initFadeUp');
-    safe(initCopyButtons,  'initCopyButtons');
-    safe(initSmoothAnchors,'initSmoothAnchors');
-    safe(initSkillGallery, 'initSkillGallery');
+    safe(initReveal,        'initReveal');
+    safe(initCopyButtons,   'initCopyButtons');
+    safe(initSmoothAnchors, 'initSmoothAnchors');
+    safe(initNavbarScroll,  'initNavbarScroll');
+    safe(initSkillGallery,  'initSkillGallery');
   }
 
   if (document.readyState === 'loading') {

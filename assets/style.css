@@ -1,27 +1,44 @@
 /* ============================================================
-   kasidit-site — custom styles
+   kasidit-site — design system (titanwings pattern)
    Loaded AFTER Tailwind CDN. Dark-only. Amber on GitHub-dark.
    ============================================================ */
 
-/* 1. Root tokens — palette, accents, glow */
+/* 1. Tokens — colors + accents */
 :root {
-  --bg-950: #0d1117;
-  --bg-900: #161b22;
-  --bg-800: #21262d;
-  --border: #30363d;
-  --text: #c9d1d9;
-  --text-bright: #f0f6fc;
-  --text-muted: #8b949e;
-  --accent: #f59e0b;
-  --accent-hi: #fbbf24;
-  --accent-lo: #d97706;
-  --glow: rgba(245, 158, 11, 0.35);
+  --surface-950: #0d1117;
+  --surface-900: #161b22;
+  --surface-800: #21262d;
+  --surface-700: #30363d;
+  --surface-600: rgba(48, 54, 61, 0.5);
+
+  --text-primary: rgb(201, 209, 217);
+  --text-heading: #ffffff;
+  --text-muted: rgb(110, 118, 129);
+  --text-dimmer: rgb(139, 148, 158);
+  --text-subtle: rgb(177, 186, 196);
+
+  --brand-400: #fcd34d;
+  --brand-500: #f59e0b;
+  --brand-600: #d97706;
+  --brand-hover: #fbbf24;
+
+  --amber-glow: rgba(245, 158, 11, 0.25);
+  --amber-text-glow: rgba(251, 191, 36, 0.5);
+
+  --accent-green: #22c55e;
+  --accent-cyan: #06b6d4;
+  --accent-purple: #a855f7;
+  --accent-orange: #f97316;
 }
 
-/* 2. Global base — body, selection, typography */
+/* 2. Base — html/body */
+html {
+  scroll-behavior: smooth;
+  background: var(--surface-950);
+}
 body {
-  background: var(--bg-950);
-  color: var(--text);
+  background: var(--surface-950);
+  color: var(--text-primary);
   font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -29,264 +46,360 @@ body {
 }
 ::selection {
   background: rgba(245, 158, 11, 0.3);
-  color: var(--text-bright);
+  color: var(--text-heading);
 }
 
-/* 3. HTML smooth scroll + skip-link a11y */
-html { scroll-behavior: smooth; }
+/* 3. Skip link */
 .skip-link {
   position: absolute;
   top: -40px;
   left: 8px;
   padding: 8px 12px;
-  background: var(--accent);
-  color: var(--bg-950);
+  background: var(--brand-500);
+  color: var(--surface-950);
   font-weight: 600;
   border-radius: 6px;
   z-index: 1000;
   transition: top 0.2s ease;
 }
-.skip-link:focus { top: 8px; outline: 2px solid var(--accent-hi); }
+.skip-link:focus {
+  top: 8px;
+  outline: 2px solid var(--brand-hover);
+}
 
-/* 4. Keyframes — fadeUp (entrance reveal) */
+/* 4. Scrollbar — thin amber-on-dark */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--surface-700);
+  border-radius: 8px;
+  border: 2px solid var(--surface-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-600);
+}
+
+/* 5. Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
 @keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
+  from { opacity: 0; transform: translateY(24px); }
   to   { opacity: 1; transform: translateY(0); }
 }
-
-/* 5. Keyframes — glowPulse (amber ring throb) */
-@keyframes glowPulse {
-  0%, 100% { box-shadow: 0 0 0 0 var(--glow); }
-  50%      { box-shadow: 0 0 30px 0 var(--glow); }
-}
-
-/* 6. Keyframes — terminalBlink (step-end cursor) */
-@keyframes terminalBlink {
-  0%, 49%   { opacity: 1; }
-  50%, 100% { opacity: 0; }
-}
-
-/* 7. Keyframes — float (gentle bob) */
 @keyframes float {
   0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(-4px); }
+  50%      { transform: translateY(-10px); }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px 0 var(--amber-glow); }
+  50%      { box-shadow: 0 0 40px 0 var(--amber-glow); }
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
 }
 
-/* 8. Fade-up reveal — toggled by enhance.js via .is-visible */
-.fade-up {
+.animate-fade-in   { animation: fadeIn 0.4s ease forwards; }
+.animate-fade-up   { animation: fadeUp 0.6s ease forwards; }
+.animate-float     { animation: float 6s ease-in-out infinite; }
+.animate-glow      { animation: glowPulse 3s ease-in-out infinite; }
+.animate-blink     { animation: blink 1s step-end infinite; }
+
+/* 6. Reveal on scroll — IntersectionObserver adds .visible */
+.reveal {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 600ms ease-out, transform 600ms ease-out;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
   will-change: opacity, transform;
 }
-.fade-up.is-visible {
+.reveal.visible {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* 9. Hero gradient — radial amber glow top-center */
-.hero-gradient {
+/* 6b. Staggered children — cascade reveal inside grouped parents */
+.stagger-children > *:nth-child(1) { transition-delay: 0ms; }
+.stagger-children > *:nth-child(2) { transition-delay: 100ms; }
+.stagger-children > *:nth-child(3) { transition-delay: 200ms; }
+.stagger-children > *:nth-child(4) { transition-delay: 300ms; }
+.stagger-children > *:nth-child(5) { transition-delay: 400ms; }
+
+/* 7. Backgrounds — grid-pattern + hero radial glow */
+.bg-grid-pattern {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='60' height='60' viewBox='0 0 60 60'><path d='M30 20 L30 40 M20 30 L40 30' stroke='%23ffffff' stroke-opacity='0.03' stroke-width='1' fill='none'/></svg>");
+  background-size: 60px 60px;
+}
+.bg-hero-gradient {
   background:
-    radial-gradient(ellipse 80% 60% at 50% -20%, var(--glow), transparent 60%),
-    var(--bg-950);
-  position: relative;
-  overflow: hidden;
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(245, 158, 11, 0.15) 0%, transparent 60%);
 }
 
-/* 10. Grid pattern — svg dot overlay, subtle */
-.grid-pattern {
-  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'><circle cx='1' cy='1' r='1' fill='%23f59e0b' opacity='0.15'/></svg>");
-  background-size: 24px 24px;
-  opacity: 0.35;
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
+/* 8. Highlight amber — inline gradient-adjacent emphasis */
+.highlight-amber {
+  color: var(--brand-hover);
+  text-shadow: 0 0 20px var(--amber-text-glow);
 }
 
-/* 11. Card — base shell */
-.card {
-  background: var(--bg-900);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 1.5rem;
-  transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
-}
-
-/* 12. Card glow — hover lift + amber ring */
-.card-glow:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow:
-    0 0 0 1px var(--glow),
-    0 20px 40px -20px var(--glow);
-}
-
-/* 13. Skill card — compact catalog item */
-.skill-card {
-  background: var(--bg-900);
-  border: 1px solid var(--border);
-  border-radius: 10px;
-  padding: 1rem;
-  transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease;
-}
-.skill-card:hover {
-  border-color: var(--accent-lo);
-  transform: translateY(-1px);
-  box-shadow: 0 12px 30px -20px var(--glow);
-}
-.skill-card .skill-title {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.95rem;
-  color: var(--text-bright);
-  margin: 0 0 0.25rem 0;
-}
-.skill-card .skill-meta {
-  font-size: 0.8rem;
-  color: var(--text-muted);
-}
-
-/* 13b. Skill card as anchor — kill underline, position ext arrow */
-a.skill-card {
-  display: block;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
-}
-a.skill-card:hover { color: inherit; }
-
-/* 13c. External arrow — subtle amber hint in card footer */
-.ext {
-  display: inline-block;
-  margin-left: 0.5rem;
-  color: var(--accent);
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.85rem;
-  opacity: 0.7;
-  transition: transform .2s ease, opacity .2s ease, color .2s ease;
-}
-a.skill-card:hover .ext,
-a.skill-card:focus-visible .ext {
-  transform: translateX(3px);
-  opacity: 1;
-  color: var(--accent-hi);
-}
-
-/* 14. Pill — tiny amber badge */
-.pill {
+/* 9. Buttons */
+.btn-primary {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
-  background: rgba(245, 158, 11, 0.12);
-  color: var(--accent-hi);
-  border: 1px solid rgba(245, 158, 11, 0.3);
-  border-radius: 9999px;
-  font-size: 0.75rem;
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  letter-spacing: 0.02em;
-}
-
-/* 15. Stat tile — big amber number + slate caption */
-.stat-tile {
-  background: var(--bg-900);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  padding: 2rem 1.5rem;
-  text-align: center;
-  transition: border-color .3s ease, transform .3s ease;
-}
-.stat-tile:hover { border-color: var(--accent-lo); transform: translateY(-2px); }
-.stat-tile .stat-number {
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 2.5rem;
-  line-height: 1.1;
-  color: var(--accent);
-  display: block;
-  margin-bottom: 0.5rem;
-}
-.stat-tile .stat-caption {
-  color: var(--text-muted);
-  font-size: 0.875rem;
-}
-
-/* 16. Terminal blink — inline cursor */
-.terminal-blink {
-  display: inline-block;
-  animation: terminalBlink 1s step-end infinite;
-  color: var(--accent);
-  font-weight: 700;
-}
-
-/* 17. Copy button — amber outline, fill on hover */
-.copy-btn {
-  display: inline-flex;
-  align-items: center;
+  justify-content: center;
   gap: 0.5rem;
-  padding: 0.5rem 0.9rem;
-  background: transparent;
-  color: var(--accent);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  font-size: 0.85rem;
+  padding: 0.75rem 1.5rem;
+  background: var(--brand-500);
+  color: var(--surface-950);
+  font-weight: 600;
+  border-radius: 0.5rem;
+  border: 1px solid transparent;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
-  transition: background-color .2s ease, color .2s ease, box-shadow .2s ease;
+  text-decoration: none;
 }
-.copy-btn:hover,
-.copy-btn:focus-visible {
-  background: var(--accent);
-  color: var(--bg-950);
-  box-shadow: 0 0 20px -5px var(--glow);
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--brand-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px var(--amber-glow);
   outline: none;
 }
 
-/* 18. Nav link — slate default, amber hover */
-.nav-link {
-  color: #c9d1d9;
-  font-size: 0.9rem;
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  color: var(--text-subtle);
+  font-weight: 600;
+  border: 1px solid var(--surface-700);
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+  cursor: pointer;
   text-decoration: none;
-  transition: color .2s ease;
 }
-.nav-link:hover,
-.nav-link:focus-visible { color: var(--accent-hi); outline: none; }
-
-/* 19. Hero heading — gradient text (bright → amber) */
-.hero-title {
-  background: linear-gradient(180deg, var(--text-bright) 0%, var(--accent-hi) 100%);
-  -webkit-background-clip: text;
-          background-clip: text;
-  color: transparent;
-  font-weight: 800;
-  letter-spacing: -0.02em;
+.btn-secondary:hover,
+.btn-secondary:focus-visible {
+  border-color: rgba(245, 158, 11, 0.5);
+  background: var(--surface-900);
+  color: var(--brand-hover);
+  outline: none;
 }
 
-/* 20. Code blocks — install section + inline snippets */
-pre {
-  background: var(--bg-800);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 1rem;
-  overflow-x: auto;
+/* 10. Cards */
+.card-base {
+  background: var(--surface-900);
+  border: 1px solid var(--surface-800);
+  border-radius: 0.75rem;
+  box-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.5),
+    0 0 0 1px var(--surface-600);
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  border-color: rgba(245, 158, 11, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(245, 158, 11, 0.2);
+}
+
+/* 10b. Feature card accent tint — optional semantic accents */
+.card-accent-amber  { --card-accent: var(--brand-500); }
+.card-accent-green  { --card-accent: var(--accent-green); }
+.card-accent-cyan   { --card-accent: var(--accent-cyan); }
+.card-accent-purple { --card-accent: var(--accent-purple); }
+.card-accent-orange { --card-accent: var(--accent-orange); }
+.card-icon-bubble {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 0.5rem;
+  background: color-mix(in srgb, var(--card-accent, var(--brand-500)) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--card-accent, var(--brand-500)) 30%, transparent);
+}
+
+/* 11. Terminal window */
+.terminal-window {
+  background: var(--surface-950);
+  border: 1px solid var(--surface-800);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.terminal-header {
+  background: var(--surface-900);
+  border-bottom: 1px solid var(--surface-800);
+  padding: 0.75rem 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.terminal-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 9999px;
+}
+.terminal-dot-red    { background: rgba(239, 68, 68, 0.8); }
+.terminal-dot-yellow { background: rgba(234, 179, 8, 0.8); }
+.terminal-dot-green  { background: rgba(34, 197, 94, 0.8); }
+.terminal-body {
+  padding: 1.25rem 1.5rem;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
   font-size: 0.875rem;
-  line-height: 1.5;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+.terminal-prompt {
+  color: var(--brand-500);
+}
+.terminal-comment {
+  color: var(--text-dimmer);
+}
+.terminal-output {
+  color: var(--text-dimmer);
+}
+
+/* 12. Tag pill */
+.tag-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  background: var(--surface-800);
+  border: 1px solid rgba(48, 54, 61, 0.5);
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-dimmer);
+  text-transform: none;
+  letter-spacing: 0.02em;
+}
+.tag-pill-amber {
+  background: rgba(245, 158, 11, 0.1);
+  border-color: rgba(245, 158, 11, 0.35);
+  color: var(--brand-hover);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* 13. Copy button */
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  background: var(--surface-800);
+  border: 1px solid var(--surface-700);
+  border-radius: 0.375rem;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  color: var(--text-dimmer);
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+.copy-btn:hover,
+.copy-btn:focus-visible {
+  background: var(--surface-700);
+  border-color: rgba(245, 158, 11, 0.5);
+  color: var(--brand-hover);
+  outline: none;
+}
+.copy-btn svg { width: 14px; height: 14px; }
+.copy-btn.copied {
+  color: var(--accent-green);
+  border-color: rgba(34, 197, 94, 0.5);
+}
+
+/* 14. Nav logo dot */
+.nav-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.5rem;
+  background: rgba(245, 158, 11, 0.2);
+  border: 1px solid rgba(245, 158, 11, 0.4);
+  color: var(--brand-400);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 700;
+  font-size: 1.125rem;
+  line-height: 1;
+}
+
+/* 15. Nav scroll-aware bg */
+#navbar-bg {
+  position: absolute;
+  inset: 0;
+  background: rgba(13, 17, 23, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(48, 54, 61, 0.5);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  pointer-events: none;
+}
+#navbar-bg.visible {
+  opacity: 1;
+}
+
+/* 16. Code blocks */
+pre {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  margin: 0;
 }
 code {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
-  color: var(--accent-hi);
 }
-pre code { color: var(--text-bright); }
+pre code { color: inherit; }
 
-/* 21. Float utility — for hero accent elements */
-.float { animation: float 6s ease-in-out infinite; }
+/* 17. External arrow glyph inside skill cards */
+.ext {
+  display: inline-flex;
+  margin-left: 0.5rem;
+  color: var(--brand-500);
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.85rem;
+  opacity: 0.7;
+  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease;
+}
+a:hover .ext,
+a:focus-visible .ext {
+  transform: translateX(3px);
+  opacity: 1;
+  color: var(--brand-hover);
+}
 
-/* 22. Reduced motion — honor OS preference */
+/* 18. Gradient text helper (when bg-clip utilities need support) */
+.text-gradient-amber {
+  background: linear-gradient(to right, #fbbf24, #d97706);
+  -webkit-background-clip: text;
+          background-clip: text;
+  color: transparent;
+}
+
+/* 19. Reduced motion */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after {
     animation: none !important;
     transition: none !important;
   }
-  .fade-up {
-    opacity: 1;
-    transform: none;
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
   html { scroll-behavior: auto; }
 }
