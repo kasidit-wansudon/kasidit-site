@@ -10,12 +10,13 @@
     "cta": { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" }
   },
   "hero": {
-    "eyebrow": "Claude Code plugin · v0.9.2",
+    "eyebrow": "Claude Code plugin · v0.10.0 🔥 HOT",
+    "badge": "NEW in v0.10: runtime-enforced backend hooks · Mode system · audit-specialist merge",
     "h1": "Mindful AI coding framework",
-    "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure.",
+    "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure. v0.10 ships runtime backend — not just prompt-level convention.",
     "ctas": [
       { "label": "Get started", "href": "#install", "variant": "primary" },
-      { "label": "Read the wiki", "href": "https://github.com/kasidit-wansudon/kasidit/wiki", "variant": "ghost" }
+      { "label": "What's new v0.10", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
     ]
   },
   "features": [
@@ -27,7 +28,7 @@
     {
       "icon": "icon-checklist",
       "title": "Checklists",
-      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes."
+      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes. 12 default checklists ship (4 stacks × 3 lenses)."
     },
     {
       "icon": "icon-tier",
@@ -38,6 +39,16 @@
       "icon": "icon-orchestrator",
       "title": "Master Orchestrator",
       "body": "One planner narrows the mission and delegates to specialists. Results are synthesized with explicit confidence labels."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "🔥 Backend hooks (v0.10)",
+      "body": "Real runtime enforcement — not just prompt convention. kasidit-route.py classifies prompts. kasidit-verify.py auto-downgrades unverified [high] claims. kasidit-record.py grows a route-memory.jsonl so the router learns the shortest successful path per mission kind over time."
+    },
+    {
+      "icon": "icon-orchestrator",
+      "title": "🔥 Mode system (v0.10)",
+      "body": "/kasi off / router / lite / full / ultra. Router default loads ~20 lines, escalates only when the work needs it. Heavy commands auto-escalate; revert on mission end. Context tax drops ~60% vs. always-on framework."
     }
   ],
   "how": [
@@ -58,11 +69,13 @@
     }
   ],
   "install": {
-    "intro": "Run these two lines in Claude Code.",
+    "intro": "Three lines in Claude Code (v0.10):",
     "snippets": [
       "/plugin marketplace add kasidit-wansudon/kasidit",
-      "/plugin install kasidit"
-    ]
+      "/plugin install kasidit@kasidit",
+      "/kasi-init"
+    ],
+    "note": "kasi-init wires 6 runtime hooks into ~/.claude/settings.json, seeds the Gravity hub, and asks one question (default mode). For manual hook install without the plugin marketplace, run plugins/kasidit/install.sh from the cloned repo."
   },
   "evidence": [
     { "number": "60.7%", "caption": "SWE-bench Lite strict PASS (34/56)" },

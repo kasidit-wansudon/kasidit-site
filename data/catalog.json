@@ -88,9 +88,9 @@
       "source_file": "agents/bug-hunter.md"
     },
     {
-      "name": "code-reviewer",
-      "description": "Multi-dimensional code review with quality gates",
-      "source_file": "agents/code-reviewer.md"
+      "name": "audit-specialist",
+      "description": "Multi-focus audit agent (v0.10) — review code quality, security, or performance depending on --focus=quality|security|perf|all. Replaces code-reviewer + security-auditor + perf-profiler.",
+      "source_file": "agents/audit-specialist.md"
     },
     {
       "name": "deep-researcher",
@@ -108,19 +108,9 @@
       "source_file": "agents/migration-specialist.md"
     },
     {
-      "name": "perf-profiler",
-      "description": "Find performance bottlenecks — slow queries, N+1, large bundles, wasted renders, memory leaks. Use when user reports slowness, high bill, or before scale event. Returns prioritized findings. Finds; does not optimize unless asked.",
-      "source_file": "agents/perf-profiler.md"
-    },
-    {
       "name": "refactor-surgeon",
       "description": "Apply a specific, scoped refactor — extract function, rename, dedupe, split file, inline. Use when user names the refactor explicitly. Does NOT decide whether to refactor, only how. Preserves behavior exactly.",
       "source_file": "agents/refactor-surgeon.md"
-    },
-    {
-      "name": "security-auditor",
-      "description": "Security-focused reviewer for vulnerability detection in source code",
-      "source_file": "agents/security-auditor.md"
     },
     {
       "name": "test-writer",
