@@ -72,10 +72,10 @@
     var desc = escapeHtml(item.description);
     var cat  = escapeHtml(categoryFor(item));
     var href = escapeHtml(wikiUrlFor(item));
-    return '<a class="reveal card-base card-hover p-6 block" href="' + href + '" target="_blank" rel="noopener">' +
-             '<h3 class="font-mono text-brand-400 text-lg mb-2">' + name + '</h3>' +
-             '<p class="text-surface-300 text-sm mb-4">' + desc + '</p>' +
-             '<span class="tag-pill">' + cat + '</span>' +
+    return '<a class="reveal skill-card" href="' + href + '" target="_blank" rel="noopener">' +
+             '<h3 class="skill-title">' + name + '</h3>' +
+             '<p class="skill-meta">' + desc + '</p>' +
+             '<span class="pill">' + cat + '</span>' +
              '<span class="ext" aria-hidden="true">&rarr;</span>' +
            '</a>';
   }

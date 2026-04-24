@@ -74,9 +74,8 @@
   <header class="fixed top-0 inset-x-0 z-50 h-16">
     <div id="navbar-bg" aria-hidden="true"></div>
     <nav aria-label="Primary" class="relative max-w-7xl mx-auto h-full flex items-center justify-between px-4 sm:px-6 lg:px-8">
-      <a href="#" class="flex items-center gap-2 font-bold tracking-tight text-surface-100">
-        <span class="nav-logo" aria-hidden="true">.</span>
-        <span>Kasidit</span>
+      <a href="#" class="flex items-center font-bold tracking-tight text-surface-100 text-lg">
+        <span>Kasidit</span><span class="text-brand-500">.</span>
       </a>
       <ul class="hidden md:flex items-center gap-1 text-sm">
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#features">Features</a></li>
@@ -133,7 +132,13 @@
               <div class="terminal-output">&nbsp;&nbsp;installed &middot; 15 commands &middot; 10 agents</div>
               <div class="mt-2"><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-init</span></div>
               <div class="terminal-output">&nbsp;&nbsp;scaffolded <span class="highlight-amber">.kasidit/</span> &middot; mission ready</div>
-              <div class="mt-2"><span class="terminal-prompt">$</span> <span class="text-surface-200">sudo fix auth bug</span><span class="animate-blink text-brand-500" aria-hidden="true">▋</span></div>
+              <div class="mt-2"><span class="terminal-prompt">#</span> <span class="text-surface-500">Step 1: narrow the mission</span></div>
+              <div class="mt-1"><span class="terminal-prompt">$</span> <span class="text-surface-200">sudo fix auth bug</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">&#10003;</span> dispatched 6 specialists &middot; context isolated</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">&#10003;</span> bug-hunter found root cause <span class="text-surface-500">AuthService.php:142</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">&#9889;</span> synthesizing fix <span class="text-surface-500">[high]</span></div>
+              <div class="mt-2"><span class="text-emerald-400 font-semibold">&#10003; Done!</span> <span class="text-surface-400">patch ready</span> <span class="text-surface-600">&rarr;</span> <span class="highlight-amber">./app/Auth/AuthService.php</span></div>
+              <div class="mt-2"><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-review</span><span class="animate-blink text-brand-500" aria-hidden="true">▋</span></div>
             </div>
           </div>
         </div>
