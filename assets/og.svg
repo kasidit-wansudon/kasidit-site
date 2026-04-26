@@ -1,28 +1,85 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630" role="img" aria-labelledby="t">
-  <title id="t">Kasidit — Mindful AI coding framework</title>
+  <title id="t">Kasidit — Mindful AI coding framework for Claude Code</title>
   <defs>
-    <pattern id="dots" x="0" y="0" width="24" height="24" patternUnits="userSpaceOnUse">
-      <circle cx="12" cy="12" r="1.5" fill="#f59e0b" fill-opacity="0.03"/>
+    <pattern id="dots" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+      <circle cx="15" cy="15" r="1.5" fill="#f59e0b" fill-opacity="0.06"/>
     </pattern>
-    <radialGradient id="glow" cx="50%" cy="0%" r="50%" fx="50%" fy="0%">
-      <stop offset="0%"   stop-color="#f59e0b" stop-opacity="0.20"/>
+    <radialGradient id="glow" cx="50%" cy="0%" r="60%" fx="50%" fy="0%">
+      <stop offset="0%"   stop-color="#f59e0b" stop-opacity="0.30"/>
+      <stop offset="60%"  stop-color="#f59e0b" stop-opacity="0.05"/>
       <stop offset="100%" stop-color="#f59e0b" stop-opacity="0"/>
     </radialGradient>
+    <linearGradient id="amberGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%"   stop-color="#fcd34d"/>
+      <stop offset="50%"  stop-color="#f59e0b"/>
+      <stop offset="100%" stop-color="#d97706"/>
+    </linearGradient>
   </defs>
 
+  <!-- Background -->
   <rect width="1200" height="630" fill="#0d1117"/>
   <rect width="1200" height="630" fill="url(#dots)"/>
-  <ellipse cx="600" cy="0" rx="800" ry="400" fill="url(#glow)"/>
+  <ellipse cx="600" cy="-50" rx="900" ry="500" fill="url(#glow)"/>
 
-  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
-    <text x="580" y="325" font-size="96" font-weight="700" fill="#f0f6fc"
-          letter-spacing="-2">Kasidit</text>
-    <circle cx="800" cy="315" r="10" fill="#fbbf24"/>
-    <text x="600" y="385" font-size="32" font-weight="400" fill="#c9d1d9">
-      Mindful AI coding framework
+  <!-- Top label -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" text-anchor="middle">
+    <text x="600" y="100" font-size="20" fill="#fbbf24" letter-spacing="3" font-weight="600">
+      CLAUDE CODE PLUGIN · v0.10.0 · MIT
     </text>
   </g>
 
-  <text x="1170" y="600" font-size="20" fill="#fbbf24" text-anchor="end"
-        font-family="ui-monospace, SFMono-Regular, Menlo, monospace">kasidit-wansudon.github.io/kasidit-site</text>
+  <!-- Headline -->
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <!-- Brand name with gradient -->
+    <text x="595" y="245" font-size="120" font-weight="900" fill="url(#amberGrad)" letter-spacing="-3">
+      Kasidit
+    </text>
+    <circle cx="850" cy="232" r="14" fill="#fbbf24"/>
+
+    <!-- Tagline -->
+    <text x="600" y="320" font-size="44" font-weight="600" fill="#f0f6fc" letter-spacing="-1">
+      Mindful AI coding framework
+    </text>
+
+    <!-- Subline -->
+    <text x="600" y="375" font-size="26" font-weight="400" fill="#8b949e">
+      Discipline over cleverness · Works on any model tier
+    </text>
+  </g>
+
+  <!-- Feature pills -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="16" font-weight="600">
+    <!-- Pill 1 -->
+    <rect x="170" y="430" width="200" height="44" rx="22" fill="rgba(245,158,11,0.10)" stroke="#f59e0b" stroke-opacity="0.35"/>
+    <text x="270" y="458" fill="#fbbf24" text-anchor="middle">/kasi · 5 modes</text>
+
+    <!-- Pill 2 -->
+    <rect x="390" y="430" width="200" height="44" rx="22" fill="rgba(34,197,94,0.10)" stroke="#22c55e" stroke-opacity="0.35"/>
+    <text x="490" y="458" fill="#4ade80" text-anchor="middle">8 specialists</text>
+
+    <!-- Pill 3 -->
+    <rect x="610" y="430" width="220" height="44" rx="22" fill="rgba(6,182,212,0.10)" stroke="#06b6d4" stroke-opacity="0.35"/>
+    <text x="720" y="458" fill="#22d3ee" text-anchor="middle">5 backend hooks</text>
+
+    <!-- Pill 4 -->
+    <rect x="850" y="430" width="180" height="44" rx="22" fill="rgba(168,85,247,0.10)" stroke="#a855f7" stroke-opacity="0.35"/>
+    <text x="940" y="458" fill="#c084fc" text-anchor="middle">Opus·Sonnet·Haiku</text>
+  </g>
+
+  <!-- Stats line -->
+  <g font-family="Inter, system-ui, sans-serif" text-anchor="middle">
+    <text x="600" y="528" font-size="20" fill="#c9d1d9" font-weight="400">
+      <tspan fill="#fbbf24" font-weight="700">87.5%</tspan> valid fix rate · SWE-bench Lite (56-task sample)
+    </text>
+  </g>
+
+  <!-- Bottom URL -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="60" y="595" font-size="18" fill="#6e7681">
+      github.com/kasidit-wansudon/kasidit
+    </text>
+    <text x="1140" y="595" font-size="18" fill="#fbbf24" text-anchor="end" font-weight="600">
+      /plugin install kasidit@kasidit
+    </text>
+  </g>
 </svg>

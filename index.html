@@ -3,23 +3,71 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Kasidit — Mindful AI coding framework</title>
-  <meta name="description" content="Kasidit: discipline over cleverness. A two-tier knowledge + checklist framework for Claude Code that works on any model tier." />
+
+  <!-- Primary Meta -->
+  <title>Kasidit · Mindful AI coding framework for Claude Code (v0.10)</title>
+  <meta name="description" content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 5 runtime hooks, 12 default checklists. Works on Opus, Sonnet, Haiku. MIT." />
+  <meta name="keywords" content="claude code, claude code plugin, ai coding, llm coding, claude, anthropic, ai framework, code review, ai agents, kasidit, opus, sonnet, haiku, swe-bench, prompt engineering, ai discipline" />
+  <meta name="author" content="Kasidit Wansudon" />
   <meta name="theme-color" content="#0d1117" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="canonical" href="https://kasidit-wansudon.github.io/kasidit-site/" />
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="alternate" type="application/atom+xml" title="Kasidit releases (Atom)" href="https://github.com/kasidit-wansudon/kasidit/releases.atom" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Kasidit — Mindful AI coding framework" />
-  <meta property="og:description" content="Discipline over cleverness. Works on any model tier — compensates for weaker reasoning with external structure." />
+  <!-- Open Graph (Facebook, LinkedIn, Discord, Slack, iMessage, Telegram, …) -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Kasidit" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="th_TH" />
+  <meta property="og:title" content="Kasidit · Mindful AI coding framework for Claude Code" />
+  <meta property="og:description" content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.10: 5 modes, 8 specialist agents, 5 runtime hooks, 12 default checklists. MIT." />
   <meta property="og:url" content="https://kasidit-wansudon.github.io/kasidit-site/" />
-  <meta property="og:image" content="assets/og.svg" />
+  <meta property="og:image" content="https://kasidit-wansudon.github.io/kasidit-site/assets/og.png" />
+  <meta property="og:image:secure_url" content="https://kasidit-wansudon.github.io/kasidit-site/assets/og.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Kasidit — Mindful AI coding framework. v0.10.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample." />
 
-  <!-- Twitter -->
+  <!-- Twitter / X (large image card) -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Kasidit — Mindful AI coding framework" />
-  <meta name="twitter:description" content="Discipline over cleverness. Works on any model tier." />
-  <meta name="twitter:image" content="assets/og.svg" />
+  <meta name="twitter:title" content="Kasidit · Mindful AI coding framework for Claude Code" />
+  <meta name="twitter:description" content="AI coding fails when it lacks a grounded base. Kasidit fixes that with 5 modes, 8 specialists, runtime hooks, and tier-aware discipline. Works on Opus, Sonnet, Haiku. MIT." />
+  <meta name="twitter:image" content="https://kasidit-wansudon.github.io/kasidit-site/assets/og.png" />
+  <meta name="twitter:image:alt" content="Kasidit — Mindful AI coding framework. v0.10.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample." />
+  <meta name="twitter:creator" content="@kasidit_wansudon" />
+  <meta name="twitter:domain" content="kasidit-wansudon.github.io" />
+
+  <!-- Schema.org JSON-LD (Google rich result + LinkedIn) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "Kasidit",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "macOS, Linux, Windows (via Claude Code)",
+    "description": "Mindful AI coding framework for Claude Code. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.10 ships 5 modes, 8 specialist agents, 5 runtime hooks, 12 default checklists.",
+    "url": "https://kasidit-wansudon.github.io/kasidit-site/",
+    "image": "https://kasidit-wansudon.github.io/kasidit-site/assets/og.png",
+    "softwareVersion": "0.10.0",
+    "license": "https://github.com/kasidit-wansudon/kasidit/blob/main/LICENSE",
+    "codeRepository": "https://github.com/kasidit-wansudon/kasidit",
+    "downloadUrl": "https://github.com/kasidit-wansudon/kasidit/releases",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Kasidit Wansudon",
+      "url": "https://github.com/kasidit-wansudon"
+    },
+    "keywords": "claude code, claude code plugin, ai coding, llm coding, claude, anthropic, ai framework, ai agents, prompt engineering",
+    "softwareRequirements": "Claude Code · Python 3.9+ · jq (preferred) or python3 stdlib · git"
+  }
+  </script>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
