@@ -79,6 +79,9 @@
       </a>
       <ul class="hidden md:flex items-center gap-1 text-sm">
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#features">Features</a></li>
+        <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#examples">
+          <span class="lang-en">Examples</span><span class="lang-th">ตัวอย่าง</span>
+        </a></li>
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#commands">Commands</a></li>
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#agents">Agents</a></li>
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="#docs">Docs</a></li>
@@ -297,6 +300,207 @@
             </div>
           </li>
         </ol>
+      </div>
+    </section>
+
+    <!-- Examples -->
+    <section id="examples" aria-labelledby="examples-title" class="relative py-24 sm:py-32 border-t border-surface-800">
+      <div class="bg-grid-pattern absolute inset-0 pointer-events-none opacity-50" aria-hidden="true"></div>
+      <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl mb-16 reveal">
+          <h2 id="examples-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Examples in action</span>
+            <span class="lang-th">ตัวอย่างการใช้จริง</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Five real mission shapes — what you type, what the orchestrator does, what comes back.</span>
+            <span class="lang-th">5 แบบ mission ที่ใช้จริง — สิ่งที่พิมพ์, สิ่งที่ orchestrator ทำ, ผลที่ได้</span>
+          </p>
+        </div>
+
+        <!-- Example 1: Bug fix -->
+        <article class="reveal mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono text-sm text-brand-hover">01</span>
+            <h3 class="text-xl font-semibold text-surface-100">
+              <span class="lang-en">Bug fix — N+1 query</span>
+              <span class="lang-th">Fix bug — N+1 query</span>
+            </h3>
+          </div>
+          <p class="text-surface-400 mb-4">
+            <span class="lang-en">Single-file fix. Mandatory <code class="font-mono text-brand-hover">git log --grep</code> + <code class="font-mono text-brand-hover">git log -S</code> before any change (Rule 2.6).</span>
+            <span class="lang-th">Fix file เดียว. ต้อง <code class="font-mono text-brand-hover">git log --grep</code> + <code class="font-mono text-brand-hover">git log -S</code> ก่อนเสมอ (Rule 2.6)</span>
+          </p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+              <span class="ml-3 text-xs text-surface-400 font-mono">claude-code · /kasi-fix</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-fix N+1 on GET /api/sales — page load &lt; 300ms</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit]</span> kind=bug-fix-single-file mode=lite</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[git]</span> log --grep="N+1" → 0 hits · log -S "with(" → 3 hits in SalesController</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">→</span> dispatch bug-hunter: SalesController.php scope</div>
+              <div class="mt-2"><span class="terminal-prompt">←</span> <span class="text-surface-200">root cause: <span class="highlight-amber">SalesController.php:142</span> missing <code>->with(['items'])</code> <span class="text-amber-400">[high]</span></span></div>
+              <div class="terminal-output">&nbsp;&nbsp;before: 47 queries · after: 3 queries · 312ms → 89ms</div>
+              <div class="mt-2"><span class="text-emerald-400 font-semibold">✓ Done!</span> <span class="text-surface-400">verified runtime · regression test added</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit-record]</span> +1 entry → route-memory.jsonl</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Example 2: Code review -->
+        <article class="reveal mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono text-sm text-brand-hover">02</span>
+            <h3 class="text-xl font-semibold text-surface-100">
+              <span class="lang-en">Code review — multi-file PR</span>
+              <span class="lang-th">Code review — PR หลายไฟล์</span>
+            </h3>
+          </div>
+          <p class="text-surface-400 mb-4">
+            <span class="lang-en">Master delegates to <code class="font-mono text-brand-hover">audit-specialist --focus=quality</code>. Findings tagged with confidence; <code class="font-mono text-brand-hover">[unsure]</code> goes to user, never silently guessed.</span>
+            <span class="lang-th">Master ส่งให้ <code class="font-mono text-brand-hover">audit-specialist --focus=quality</code>. ผลแต่ละข้อ tag confidence; <code class="font-mono text-brand-hover">[unsure]</code> ส่งให้ user ห้ามเดาเงียบ</span>
+          </p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+              <span class="ml-3 text-xs text-surface-400 font-mono">claude-code · /kasi-review</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-review PR #1247 — 5 files changed</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit]</span> mode=full · escalate from router</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">→</span> dispatch audit-specialist --focus=quality (1 agent / file × 5)</div>
+              <div class="mt-2 text-red-400">🔴 HIGH</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">[high]</span> <span class="highlight-amber">UserService.php:88</span> race condition on session create</div>
+              <div class="mt-1 text-yellow-400">🟡 MED</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">[medium]</span> <span class="highlight-amber">OrderRepo.php:54</span> N+1 pattern (not profiled)</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">[medium]</span> <span class="highlight-amber">api.test.js:12</span> stale snapshot</div>
+              <div class="mt-1 text-surface-400">❓ UNSURE — user review</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[unsure]</span> <span class="highlight-amber">DiscountCalc.php:103</span> rounding edge case — needs domain rule</div>
+              <div class="mt-2"><span class="text-emerald-400">✓</span> verifier pass · 0 false positives</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Example 3: Security audit -->
+        <article class="reveal mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono text-sm text-brand-hover">03</span>
+            <h3 class="text-xl font-semibold text-surface-100">
+              <span class="lang-en">Security audit — checklist-driven</span>
+              <span class="lang-th">Security audit — ขับด้วย checklist</span>
+            </h3>
+          </div>
+          <p class="text-surface-400 mb-4">
+            <span class="lang-en">Auto-escalates to <code class="font-mono text-brand-hover">ultra</code>. Mechanical pass through <code class="font-mono text-brand-hover">checklists/security-php.md</code> — no reasoning required, ideal for Haiku.</span>
+            <span class="lang-th">Escalate ไป <code class="font-mono text-brand-hover">ultra</code> อัตโนมัติ. ตรวจตาม <code class="font-mono text-brand-hover">checklists/security-php.md</code> — ไม่ต้อง reasoning, เหมาะ Haiku</span>
+          </p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+              <span class="ml-3 text-xs text-surface-400 font-mono">claude-code · /kasi-security</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-security SalesController.php — only HIGH</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit]</span> mode=ultra · checklist=security-php (28 items)</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">→</span> 1 agent + verifier pass</div>
+              <div class="mt-2 text-red-400">🔴 HIGH (filtered)</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">[high]</span> <span class="highlight-amber">L:3708</span> SQL inject — <code>$distributor_id</code> concat in CALL proc</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-surface-500">fix:</span> <code>DB::select('CALL p(?)', [$distributor_id])</code></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-amber-400">[high]</span> <span class="highlight-amber">L:825</span> SQL inject _exportCancelIMEI — raw concat</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-surface-500">fix:</span> binding via <code>DB::select(?, [$imei])</code></div>
+              <div class="mt-2"><span class="text-emerald-400">✓</span> verifier: both reproducible · ready to fix</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">offer:</span> export findings as one-pager via Claude Design? (y/n)</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Example 4: UI override -->
+        <article class="reveal mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono text-sm text-brand-hover">04</span>
+            <h3 class="text-xl font-semibold text-surface-100">
+              <span class="lang-en">UI fix — override pattern</span>
+              <span class="lang-th">UI fix — override pattern</span>
+            </h3>
+          </div>
+          <p class="text-surface-400 mb-4">
+            <span class="lang-en">Visual is truth. Cascade is noise. Scoped class + <code class="font-mono text-brand-hover">!important</code>, one change per round, cache version bumped.</span>
+            <span class="lang-th">Visual คือคำตอบ. Cascade คือเสียงรบกวน. Class scope + <code class="font-mono text-brand-hover">!important</code>, แก้ทีละจุด, bump cache version</span>
+          </p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+              <span class="ml-3 text-xs text-surface-400 font-mono">claude-code · /kasi-ui</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="terminal-prompt">$</span> <span class="text-surface-200">/kasi-ui table แคบ ควรกว้างเท่า chart [screenshot]</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit]</span> domain=ui · override mode</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">→</span> grep max-width on .table + parents</div>
+              <div class="mt-2"><span class="terminal-prompt">←</span> <span class="text-surface-200">found 3 constraints:</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="highlight-amber">#datatable</span> max-width: 500px <span class="text-red-400">← culprit</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="highlight-amber">#show-result</span> max-width: 1000px (parent OK)</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="highlight-amber">.highcharts-figure</span> max-width: 1000px (reference)</div>
+              <div class="mt-2 text-amber-400">fix (1 change):</div>
+              <pre class="px-0 py-1 text-xs text-brand-hover"><code>.kasidit-fix-table-width #datatable {
+  max-width: 1000px !important;
+}</code></pre>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">cache:</span> v1.0.5 → 1.0.6 · clear + Cmd+Shift+R</div>
+              <div class="mt-2"><span class="text-emerald-400">⏳</span> waiting for screenshot to verify...</div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Example 5: sudo fan-out -->
+        <article class="reveal mb-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span class="font-mono text-sm text-brand-hover">05</span>
+            <h3 class="text-xl font-semibold text-surface-100">
+              <span class="lang-en">Multi-agent — <code class="font-mono text-brand-hover">sudo</code> fan-out</span>
+              <span class="lang-th">Multi-agent — <code class="font-mono text-brand-hover">sudo</code> กระจายงาน</span>
+            </h3>
+          </div>
+          <p class="text-surface-400 mb-4">
+            <span class="lang-en"><code class="font-mono text-brand-hover">sudo &lt;mission&gt;</code> = <code class="font-mono text-brand-hover">/kasi-multi 6</code> + skip clarifying Qs. Master narrates assumptions, dispatches 6 in parallel, synthesizes.</span>
+            <span class="lang-th"><code class="font-mono text-brand-hover">sudo &lt;mission&gt;</code> = <code class="font-mono text-brand-hover">/kasi-multi 6</code> + ข้าม clarifying. Master narrate assumption, ส่ง 6 ตัวขนาน, รวมผล</span>
+          </p>
+          <div class="terminal-window">
+            <div class="terminal-header">
+              <span class="terminal-dot terminal-dot-red" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-yellow" aria-hidden="true"></span>
+              <span class="terminal-dot terminal-dot-green" aria-hidden="true"></span>
+              <span class="ml-3 text-xs text-surface-400 font-mono">claude-code · sudo</span>
+            </div>
+            <div class="terminal-body">
+              <div><span class="terminal-prompt">$</span> <span class="text-surface-200">sudo refactor 4 controllers — extract auth into middleware</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-surface-500">[kasidit]</span> sudo · N=6 · assumption: middleware = ApiAuth namespace</div>
+              <div class="terminal-output">&nbsp;&nbsp;<span class="text-cyan-400">→</span> dispatch in parallel:</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> architect-planner — middleware shape + DI strategy</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> refactor-surgeon — UserController auth extract</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> refactor-surgeon — OrderController auth extract</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> refactor-surgeon — ProductController auth extract</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> refactor-surgeon — ReportController auth extract</div>
+              <div class="terminal-output">&nbsp;&nbsp;&nbsp;&nbsp;<span class="text-purple-400">●</span> test-writer — middleware regression suite</div>
+              <div class="mt-2"><span class="terminal-prompt">←</span> <span class="text-surface-200">synthesis: 4 controllers cleaned, 1 middleware, 12 tests green</span></div>
+              <div class="terminal-output">&nbsp;&nbsp;diff: -184 lines · +52 middleware · context isolation preserved</div>
+              <div class="mt-2"><span class="text-emerald-400 font-semibold">✓ Done!</span> <span class="text-surface-400">runtime: all routes 200 · auth tests pass</span></div>
+            </div>
+          </div>
+        </article>
+
+        <p class="text-sm text-surface-500 text-center">
+          <span class="lang-en">Honest note: outputs above are representative shapes — actual responses depend on tier (Opus/Sonnet/Haiku), project state, and runtime evidence.</span>
+          <span class="lang-th">หมายเหตุ: output ด้านบนคือรูปแบบโดยทั่วไป — ของจริงขึ้นกับ tier (Opus/Sonnet/Haiku), state ของ project, และผล runtime</span>
+        </p>
       </div>
     </section>
 
