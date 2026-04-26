@@ -436,3 +436,29 @@ a:focus-visible .ext {
   }
   html { scroll-behavior: auto; }
 }
+
+/* 20. i18n — language toggle (EN default, TH alternative) */
+html[data-lang="en"] .lang-th { display: none !important; }
+html[data-lang="th"] .lang-en { display: none !important; }
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.375rem 0.625rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--surface-700);
+  background: var(--surface-900);
+  color: var(--text-dimmer);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+}
+.lang-toggle:hover,
+.lang-toggle:focus-visible {
+  border-color: var(--brand-500);
+  color: var(--brand-hover);
+  background: var(--surface-800);
+  outline: none;
+}

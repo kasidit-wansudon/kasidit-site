@@ -254,7 +254,39 @@
     try { fn(); } catch (err) { console.error('[enhance] ' + label + ' failed:', err); }
   }
 
+  function initLangToggle() {
+    var STORAGE_KEY = 'kasidit-lang';
+    var DEFAULT = 'en';
+    var supported = ['en', 'th'];
+
+    function detect() {
+      var stored = null;
+      try { stored = localStorage.getItem(STORAGE_KEY); } catch (e) {}
+      if (stored && supported.indexOf(stored) !== -1) return stored;
+      var nav = (navigator.language || '').toLowerCase();
+      if (nav.indexOf('th') === 0) return 'th';
+      return DEFAULT;
+    }
+
+    function apply(lang) {
+      document.documentElement.setAttribute('data-lang', lang);
+      document.documentElement.setAttribute('lang', lang);
+      try { localStorage.setItem(STORAGE_KEY, lang); } catch (e) {}
+    }
+
+    apply(detect());
+
+    var buttons = document.querySelectorAll('[data-lang-toggle]');
+    for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function () {
+        var current = document.documentElement.getAttribute('data-lang') || DEFAULT;
+        apply(current === 'th' ? 'en' : 'th');
+      });
+    }
+  }
+
   function init() {
+    safe(initLangToggle,    'initLangToggle');
     safe(initReveal,        'initReveal');
     safe(initCopyButtons,   'initCopyButtons');
     safe(initSmoothAnchors, 'initSmoothAnchors');

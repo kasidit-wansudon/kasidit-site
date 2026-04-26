@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en" class="dark" data-lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -86,9 +86,16 @@
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Wiki</a></li>
         <li><a class="px-3 py-1.5 rounded-md text-surface-300 hover:text-surface-100 hover:bg-surface-800/60 transition" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">GitHub</a></li>
       </ul>
-      <a href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener" class="btn-primary text-sm px-4 py-2">
-        View on GitHub
-      </a>
+      <div class="flex items-center gap-3">
+        <button type="button" class="lang-toggle" data-lang-toggle aria-label="Switch language">
+          <span class="lang-en">EN · ไทย</span>
+          <span class="lang-th">ไทย · EN</span>
+        </button>
+        <a href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener" class="btn-primary text-sm px-4 py-2">
+          <span class="lang-en">View on GitHub</span>
+          <span class="lang-th">ดูบน GitHub</span>
+        </a>
+      </div>
     </nav>
   </header>
 
@@ -108,15 +115,28 @@
             Claude Code plugin &middot; v0.10.0 &middot; <span class="text-amber-400">&#128293; HOT</span>
           </p>
           <h1 id="hero-title" class="reveal text-5xl sm:text-6xl md:text-7xl font-black tracking-tight leading-tight text-surface-100 mb-6">
-            <span class="text-gradient-amber">Mindful AI</span><br />
-            <span>coding framework</span><span class="animate-blink text-brand-500" aria-hidden="true">|</span>
+            <span class="lang-en">
+              <span class="text-gradient-amber">Mindful AI</span><br />
+              <span>coding framework</span><span class="animate-blink text-brand-500" aria-hidden="true">|</span>
+            </span>
+            <span class="lang-th">
+              <span class="text-gradient-amber">AI โค้ด</span><br />
+              <span>อย่างมีวินัย</span><span class="animate-blink text-brand-500" aria-hidden="true">|</span>
+            </span>
           </h1>
           <p class="reveal text-lg sm:text-xl text-surface-400 max-w-2xl mx-auto mb-10">
-            Discipline over cleverness. Works on any model tier — compensates for weaker reasoning with external structure.
+            <span class="lang-en">Discipline over cleverness. Works on any model tier — compensates for weaker reasoning with external structure.</span>
+            <span class="lang-th">วินัยสำคัญกว่าความฉลาด ใช้ได้กับทุก model tier — มี structure ภายนอกชดเชยเมื่อ reasoning อ่อน</span>
           </p>
           <div class="reveal flex flex-wrap gap-4 justify-center mb-16">
-            <a href="#install" class="btn-primary">Get started</a>
-            <a href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener" class="btn-secondary">Read the wiki</a>
+            <a href="#install" class="btn-primary">
+              <span class="lang-en">Get started</span>
+              <span class="lang-th">เริ่มใช้งาน</span>
+            </a>
+            <a href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener" class="btn-secondary">
+              <span class="lang-en">Read the wiki</span>
+              <span class="lang-th">อ่าน wiki</span>
+            </a>
           </div>
 
           <!-- Animated terminal card -->
@@ -152,8 +172,14 @@
       <div class="bg-grid-pattern absolute inset-0 pointer-events-none opacity-50" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16 reveal">
-          <h2 id="features-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Why Kasidit</h2>
-          <p class="text-lg text-surface-400">Four primitives that force structure before the model is allowed to guess.</p>
+          <h2 id="features-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Why Kasidit</span>
+            <span class="lang-th">ทำไมต้อง Kasidit</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Four primitives that force structure before the model is allowed to guess.</span>
+            <span class="lang-th">4 หลักที่บังคับ structure ก่อนปล่อยให้ AI เดา</span>
+          </p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
@@ -162,9 +188,12 @@
               <img src="assets/icon-gravity.svg" alt="" width="28" height="28" />
             </div>
             <h3 class="text-xl font-semibold text-surface-100 mb-3">Gravity Pattern</h3>
-            <p class="text-surface-400 mb-5">Two-tier knowledge. Global hub + project orbit. Nothing moves without confirmation.</p>
+            <p class="text-surface-400 mb-5">
+              <span class="lang-en">Two-tier knowledge. Global hub + project orbit. Nothing moves without confirmation.</span>
+              <span class="lang-th">Knowledge 2 ชั้น hub กลาง + project orbit. ไม่มีอะไรย้ายโดยไม่ยืนยัน</span>
+            </p>
             <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Gravity-Pattern" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-hover transition">
-              Learn more <span class="ext">&rarr;</span>
+              <span class="lang-en">Learn more</span><span class="lang-th">ดูเพิ่ม</span> <span class="ext">&rarr;</span>
             </a>
           </article>
 
@@ -173,9 +202,12 @@
               <img src="assets/icon-checklist.svg" alt="" width="28" height="28" />
             </div>
             <h3 class="text-xl font-semibold text-surface-100 mb-3">Checklists</h3>
-            <p class="text-surface-400 mb-5">Audit by mechanical list. Haiku executes faithfully when reasoning is weak.</p>
+            <p class="text-surface-400 mb-5">
+              <span class="lang-en">Audit by mechanical list. Haiku executes faithfully when reasoning is weak.</span>
+              <span class="lang-th">ตรวจตาม list. Haiku ทำตามได้ครบแม้ reasoning อ่อน</span>
+            </p>
             <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Checklists" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-hover transition">
-              Learn more <span class="ext">&rarr;</span>
+              <span class="lang-en">Learn more</span><span class="lang-th">ดูเพิ่ม</span> <span class="ext">&rarr;</span>
             </a>
           </article>
 
@@ -184,9 +216,12 @@
               <img src="assets/icon-tier.svg" alt="" width="28" height="28" />
             </div>
             <h3 class="text-xl font-semibold text-surface-100 mb-3">Tier-aware</h3>
-            <p class="text-surface-400 mb-5">Opus reasons. Sonnet works. Haiku greps. Rules diverge by model.</p>
+            <p class="text-surface-400 mb-5">
+              <span class="lang-en">Opus reasons. Sonnet works. Haiku greps. Rules diverge by model.</span>
+              <span class="lang-th">Opus คิด. Sonnet ทำ. Haiku grep. กฎต่างกันตามรุ่น</span>
+            </p>
             <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Tier-Aware" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-hover transition">
-              Learn more <span class="ext">&rarr;</span>
+              <span class="lang-en">Learn more</span><span class="lang-th">ดูเพิ่ม</span> <span class="ext">&rarr;</span>
             </a>
           </article>
 
@@ -195,9 +230,12 @@
               <img src="assets/icon-orchestrator.svg" alt="" width="28" height="28" />
             </div>
             <h3 class="text-xl font-semibold text-surface-100 mb-3">Master Orchestrator</h3>
-            <p class="text-surface-400 mb-5">Main delegates. Specialists execute. Context isolation by design.</p>
+            <p class="text-surface-400 mb-5">
+              <span class="lang-en">Main delegates. Specialists execute. Context isolation by design.</span>
+              <span class="lang-th">Main delegate. Specialist execute. แยก context ตามแบบ</span>
+            </p>
             <a href="https://github.com/kasidit-wansudon/kasidit/wiki/Master-Orchestrator" target="_blank" rel="noopener" class="inline-flex items-center text-sm font-medium text-brand-500 hover:text-brand-hover transition">
-              Learn more <span class="ext">&rarr;</span>
+              <span class="lang-en">Learn more</span><span class="lang-th">ดูเพิ่ม</span> <span class="ext">&rarr;</span>
             </a>
           </article>
         </div>
@@ -208,30 +246,54 @@
     <section id="how" aria-labelledby="how-title" class="relative py-24 sm:py-32 border-t border-surface-800">
       <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-16 reveal">
-          <h2 id="how-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">How it works</h2>
-          <p class="text-lg text-surface-400">A mission moves through three gates. Each gate refuses if the prior is underspecified.</p>
+          <h2 id="how-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">How it works</span>
+            <span class="lang-th">ทำงานอย่างไร</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">A mission moves through three gates. Each gate refuses if the prior is underspecified.</span>
+            <span class="lang-th">ทุก mission ต้องผ่าน 3 ด่าน. ด่านถัดไปจะปฏิเสธถ้าด่านก่อนหน้ายังไม่ชัด</span>
+          </p>
         </div>
 
         <ol class="space-y-12 stagger-children">
           <li class="reveal flex gap-6">
             <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-mono text-xl font-bold text-brand-hover">01</div>
             <div>
-              <h3 class="text-xl font-semibold text-surface-100 mb-2">Narrow the mission</h3>
-              <p class="text-surface-400">Vague asks get refused. Pick from numbered options until the target is verifiable.</p>
+              <h3 class="text-xl font-semibold text-surface-100 mb-2">
+                <span class="lang-en">Narrow the mission</span>
+                <span class="lang-th">ตั้งเป้าให้ชัด</span>
+              </h3>
+              <p class="text-surface-400">
+                <span class="lang-en">Vague asks get refused. Pick from numbered options until the target is verifiable.</span>
+                <span class="lang-th">โจทย์กำกวมจะถูกปฏิเสธ. เลือกจาก option ที่เป็นเลขจน verify ได้</span>
+              </p>
             </div>
           </li>
           <li class="reveal flex gap-6">
             <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-mono text-xl font-bold text-brand-hover">02</div>
             <div>
-              <h3 class="text-xl font-semibold text-surface-100 mb-2">Dispatch specialists</h3>
-              <p class="text-surface-400"><code class="font-mono text-brand-hover">sudo &lt;mission&gt;</code> fans out to 6 parallel specialists. Each gets isolated context and a brief.</p>
+              <h3 class="text-xl font-semibold text-surface-100 mb-2">
+                <span class="lang-en">Dispatch specialists</span>
+                <span class="lang-th">ส่งงานให้ specialist</span>
+              </h3>
+              <p class="text-surface-400">
+                <span class="lang-en"><code class="font-mono text-brand-hover">sudo &lt;mission&gt;</code> fans out to 6 parallel specialists. Each gets isolated context and a brief.</span>
+                <span class="lang-th"><code class="font-mono text-brand-hover">sudo &lt;mission&gt;</code> กระจายให้ specialist 6 ตัวขนานกัน แต่ละตัวได้ context แยก + brief ของตัวเอง</span>
+              </p>
             </div>
           </li>
           <li class="reveal flex gap-6">
             <div class="flex-shrink-0 w-14 h-14 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-center justify-center font-mono text-xl font-bold text-brand-hover">03</div>
             <div>
-              <h3 class="text-xl font-semibold text-surface-100 mb-2">Synthesize with confidence</h3>
-              <p class="text-surface-400">Findings tagged <code class="font-mono text-brand-hover">[high/medium/low/unsure]</code>. <code class="font-mono text-brand-hover">[unsure]</code> never silently guessed.</p>
+              <h3 class="text-xl font-semibold text-surface-100 mb-2">
+                <span class="lang-en">Synthesize with confidence</span>
+                <span class="lang-th">รวมผลพร้อม confidence</span>
+              </h3>
+              <p class="text-surface-400">
+                <span class="lang-en">Findings tagged <code class="font-mono text-brand-hover">[high/medium/low/unsure]</code>. <code class="font-mono text-brand-hover">[unsure]</code> never silently guessed.</span>
+                <span class="lang-th">ผลทุกข้อ tag <code class="font-mono text-brand-hover">[high/medium/low/unsure]</code>. <code class="font-mono text-brand-hover">[unsure]</code> ห้ามเดาเงียบเด็ดขาด</span>
+              </p>
             </div>
           </li>
         </ol>
@@ -243,8 +305,14 @@
       <div class="bg-grid-pattern absolute inset-0 pointer-events-none opacity-40" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16 reveal">
-          <h2 id="commands-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Commands</h2>
-          <p class="text-lg text-surface-400">Slash commands that launch a disciplined mission. Pick the one that matches your intent.</p>
+          <h2 id="commands-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Commands</span>
+            <span class="lang-th">Commands</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Slash commands that launch a disciplined mission. Pick the one that matches your intent.</span>
+            <span class="lang-th">Slash commands ที่เริ่ม mission แบบมีวินัย. เลือกตัวที่ตรงกับเจตนา</span>
+          </p>
         </div>
         <div id="commands-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <noscript>
@@ -258,8 +326,14 @@
     <section id="agents" aria-labelledby="agents-title" class="relative py-24 sm:py-32 border-t border-surface-800">
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16 reveal">
-          <h2 id="agents-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Specialist agents</h2>
-          <p class="text-lg text-surface-400">Focused subagents the orchestrator dispatches. Each owns one checklist and returns tagged findings.</p>
+          <h2 id="agents-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Specialist agents</span>
+            <span class="lang-th">Specialist agents</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Focused subagents the orchestrator dispatches. Each owns one checklist and returns tagged findings.</span>
+            <span class="lang-th">Subagent เฉพาะทาง ที่ orchestrator ส่งให้. แต่ละตัวถือ 1 checklist + คืนผลที่ tag เรียบร้อย</span>
+          </p>
         </div>
         <div id="agents-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <noscript>
@@ -274,8 +348,14 @@
       <div class="bg-grid-pattern absolute inset-0 pointer-events-none opacity-40" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16 reveal">
-          <h2 id="docs-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Docs</h2>
-          <p class="text-lg text-surface-400">Top-level wiki pages. Read these before running a mission for the first time.</p>
+          <h2 id="docs-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Docs</span>
+            <span class="lang-th">เอกสาร</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Top-level wiki pages. Read these before running a mission for the first time.</span>
+            <span class="lang-th">หน้า wiki หลัก. อ่านก่อนเริ่ม mission ครั้งแรก</span>
+          </p>
         </div>
         <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
           <a class="reveal card-base card-hover p-6 block" href="https://github.com/kasidit-wansudon/kasidit/wiki/Home" target="_blank" rel="noopener">
@@ -322,8 +402,14 @@
     <section id="install" aria-labelledby="install-title" class="relative py-24 sm:py-32 border-t border-surface-800">
       <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="mb-16 reveal">
-          <h2 id="install-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Install</h2>
-          <p class="text-lg text-surface-400">Run these two lines in Claude Code. First time only.</p>
+          <h2 id="install-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Install</span>
+            <span class="lang-th">ติดตั้ง</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Run these two lines in Claude Code. First time only.</span>
+            <span class="lang-th">พิมพ์ 2 บรรทัดนี้ใน Claude Code (ครั้งแรกเท่านั้น)</span>
+          </p>
         </div>
 
         <div class="space-y-4 reveal">
@@ -343,8 +429,14 @@
           </div>
         </div>
 
-        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">Update</h3>
-        <p class="text-surface-400 mb-6 reveal">Already installed. Pull the latest release.</p>
+        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">
+          <span class="lang-en">Update</span>
+          <span class="lang-th">อัปเดต</span>
+        </h3>
+        <p class="text-surface-400 mb-6 reveal">
+          <span class="lang-en">Already installed. Pull the latest release.</span>
+          <span class="lang-th">ติดตั้งแล้ว ดึงเวอร์ชั่นล่าสุด</span>
+        </p>
         <div class="space-y-4 reveal">
           <div class="card-base relative overflow-hidden">
             <button data-copy="/plugin marketplace update kasidit" class="copy-btn absolute top-3 right-3 z-10" aria-label="Copy command">
@@ -354,10 +446,19 @@
             <pre class="p-5 pr-28 overflow-x-auto"><code class="text-brand-hover">/plugin marketplace update kasidit</code></pre>
           </div>
         </div>
-        <p class="text-sm text-surface-400 mt-4 reveal">Reload the session to pick up new commands. New in the latest release appears on the <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/releases" target="_blank" rel="noopener">releases page</a>.</p>
+        <p class="text-sm text-surface-400 mt-4 reveal">
+          <span class="lang-en">Reload the session to pick up new commands. New in the latest release appears on the <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/releases" target="_blank" rel="noopener">releases page</a>.</span>
+          <span class="lang-th">รีโหลด session เพื่อโหลด command ใหม่. ของใหม่ใน release ล่าสุดดูได้ที่ <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/releases" target="_blank" rel="noopener">หน้า releases</a></span>
+        </p>
 
-        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">Prompt log hook (optional)</h3>
-        <p class="text-surface-400 mb-6 reveal">Capture every prompt to <code class="font-mono text-brand-hover">~/.claude/skills/kasidit/center/logs/</code>. Hook ships with the plugin; installs at user scope.</p>
+        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">
+          <span class="lang-en">Prompt log hook (optional)</span>
+          <span class="lang-th">Prompt log hook (ทางเลือก)</span>
+        </h3>
+        <p class="text-surface-400 mb-6 reveal">
+          <span class="lang-en">Capture every prompt to <code class="font-mono text-brand-hover">~/.claude/skills/kasidit/center/logs/</code>. Hook ships with the plugin; installs at user scope.</span>
+          <span class="lang-th">เก็บทุก prompt ลง <code class="font-mono text-brand-hover">~/.claude/skills/kasidit/center/logs/</code>. Hook มากับ plugin ติดตั้งที่ user scope</span>
+        </p>
         <div class="space-y-4 reveal">
           <div class="card-base relative overflow-hidden">
             <button data-copy="cp ~/.claude/plugins/marketplaces/kasidit/plugins/kasidit/hooks/kasidit-log.{sh,py} ~/.claude/hooks/ &amp;&amp; chmod +x ~/.claude/hooks/kasidit-log.*" class="copy-btn absolute top-3 right-3 z-10" aria-label="Copy command">
@@ -367,10 +468,19 @@
             <pre class="p-5 pr-28 overflow-x-auto text-xs"><code class="text-brand-hover">cp ~/.claude/plugins/marketplaces/kasidit/plugins/kasidit/hooks/kasidit-log.{sh,py} ~/.claude/hooks/ &amp;&amp; chmod +x ~/.claude/hooks/kasidit-log.*</code></pre>
           </div>
         </div>
-        <p class="text-sm text-surface-400 mt-4 reveal">Then register the <code class="font-mono text-brand-hover">UserPromptSubmit</code> hook in <code class="font-mono text-brand-hover">~/.claude/settings.json</code> — full steps in the <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/wiki/Installation" target="_blank" rel="noopener">Installation wiki</a>.</p>
+        <p class="text-sm text-surface-400 mt-4 reveal">
+          <span class="lang-en">Then register the <code class="font-mono text-brand-hover">UserPromptSubmit</code> hook in <code class="font-mono text-brand-hover">~/.claude/settings.json</code> — full steps in the <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/wiki/Installation" target="_blank" rel="noopener">Installation wiki</a>.</span>
+          <span class="lang-th">ลงทะเบียน hook <code class="font-mono text-brand-hover">UserPromptSubmit</code> ใน <code class="font-mono text-brand-hover">~/.claude/settings.json</code> — ขั้นตอนเต็มดูที่ <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/wiki/Installation" target="_blank" rel="noopener">หน้า Installation wiki</a></span>
+        </p>
 
-        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">First project</h3>
-        <p class="text-surface-400 mb-6 reveal">Bootstrap <code class="font-mono text-brand-hover">.kasidit/</code> and wire auto-invoke.</p>
+        <h3 class="text-xl md:text-2xl font-semibold tracking-tight text-surface-100 mt-16 mb-3 reveal">
+          <span class="lang-en">First project</span>
+          <span class="lang-th">Project แรก</span>
+        </h3>
+        <p class="text-surface-400 mb-6 reveal">
+          <span class="lang-en">Bootstrap <code class="font-mono text-brand-hover">.kasidit/</code> and wire auto-invoke.</span>
+          <span class="lang-th">สร้าง <code class="font-mono text-brand-hover">.kasidit/</code> + ต่อ auto-invoke</span>
+        </p>
         <div class="space-y-4 reveal">
           <div class="card-base relative overflow-hidden">
             <button data-copy="/kasi-init" class="copy-btn absolute top-3 right-3 z-10" aria-label="Copy command">
@@ -388,25 +498,43 @@
       <div class="bg-grid-pattern absolute inset-0 pointer-events-none opacity-40" aria-hidden="true"></div>
       <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl mb-16 reveal">
-          <h2 id="evidence-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">Evidence</h2>
-          <p class="text-lg text-surface-400">Measured on SWE-bench Lite and curated Kasidit task suites. Runtime is the judge.</p>
+          <h2 id="evidence-title" class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4">
+            <span class="lang-en">Evidence</span>
+            <span class="lang-th">ผลทดสอบ</span>
+          </h2>
+          <p class="text-lg text-surface-400">
+            <span class="lang-en">Measured on SWE-bench Lite and curated Kasidit task suites. Runtime is the judge.</span>
+            <span class="lang-th">วัดบน SWE-bench Lite + ชุด task ของ Kasidit. Runtime เป็นตัวตัดสิน</span>
+          </p>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-5 stagger-children">
           <div class="reveal card-base p-6 text-center">
             <div class="font-mono text-4xl font-bold text-brand-500 mb-2">60.7%</div>
-            <p class="text-sm text-surface-400">SWE-bench Lite strict PASS (34/56)</p>
+            <p class="text-sm text-surface-400">
+              <span class="lang-en">SWE-bench Lite strict PASS (34/56)</span>
+              <span class="lang-th">SWE-bench Lite PASS เข้ม (34/56)</span>
+            </p>
           </div>
           <div class="reveal card-base p-6 text-center">
             <div class="font-mono text-4xl font-bold text-brand-500 mb-2">87.5%</div>
-            <p class="text-sm text-surface-400">valid fix rate</p>
+            <p class="text-sm text-surface-400">
+              <span class="lang-en">valid fix rate</span>
+              <span class="lang-th">อัตรา fix ที่ใช้ได้</span>
+            </p>
           </div>
           <div class="reveal card-base p-6 text-center">
             <div class="font-mono text-4xl font-bold text-brand-500 mb-2">100%</div>
-            <p class="text-sm text-surface-400">curated 7-task Opus valid rate</p>
+            <p class="text-sm text-surface-400">
+              <span class="lang-en">curated 7-task Opus valid rate</span>
+              <span class="lang-th">ชุด 7 task บน Opus ผ่านทั้งหมด</span>
+            </p>
           </div>
           <div class="reveal card-base p-6 text-center">
             <div class="font-mono text-4xl font-bold text-brand-500 mb-2">0 FAIL</div>
-            <p class="text-sm text-surface-400">15-task curated run</p>
+            <p class="text-sm text-surface-400">
+              <span class="lang-en">15-task curated run</span>
+              <span class="lang-th">ชุด 15 task ไม่ fail เลย</span>
+            </p>
           </div>
         </div>
       </div>
@@ -424,11 +552,20 @@
             <span class="font-bold text-surface-100">Kasidit</span>
           </div>
           <h2 id="foot-about" class="sr-only">About</h2>
-          <p class="text-sm text-surface-400">Kasidit is a mindful AI coding framework for Claude Code. Discipline, checklists, and tier-aware orchestration in place of clever tricks.</p>
-          <p class="mt-3 text-sm text-surface-400">Built by Kasidit Wansudon, self-taught Thai engineer.</p>
+          <p class="text-sm text-surface-400">
+            <span class="lang-en">Kasidit is a mindful AI coding framework for Claude Code. Discipline, checklists, and tier-aware orchestration in place of clever tricks.</span>
+            <span class="lang-th">Kasidit คือ framework สำหรับ Claude Code เน้นวินัย, checklist, และ orchestration ที่รู้ tier ของ model — แทน trick ฉลาดๆ</span>
+          </p>
+          <p class="mt-3 text-sm text-surface-400">
+            <span class="lang-en">Built by Kasidit Wansudon, self-taught Thai engineer.</span>
+            <span class="lang-th">พัฒนาโดย Kasidit Wansudon — Thai self-taught engineer</span>
+          </p>
         </section>
         <section aria-labelledby="foot-links">
-          <h2 id="foot-links" class="font-semibold text-surface-100 mb-4">Links</h2>
+          <h2 id="foot-links" class="font-semibold text-surface-100 mb-4">
+            <span class="lang-en">Links</span>
+            <span class="lang-th">ลิงก์</span>
+          </h2>
           <ul class="space-y-2 text-sm">
             <li><a class="text-surface-400 hover:text-brand-hover transition" href="https://github.com/kasidit-wansudon/kasidit" target="_blank" rel="noopener">GitHub</a></li>
             <li><a class="text-surface-400 hover:text-brand-hover transition" href="https://github.com/kasidit-wansudon/kasidit/wiki" target="_blank" rel="noopener">Wiki</a></li>
@@ -437,8 +574,14 @@
           </ul>
         </section>
         <section aria-labelledby="foot-community">
-          <h2 id="foot-community" class="font-semibold text-surface-100 mb-4">Community</h2>
-          <p class="text-sm text-surface-400">Issues welcome — <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/issues" target="_blank" rel="noopener">github.com/kasidit-wansudon/kasidit/issues</a></p>
+          <h2 id="foot-community" class="font-semibold text-surface-100 mb-4">
+            <span class="lang-en">Community</span>
+            <span class="lang-th">ชุมชน</span>
+          </h2>
+          <p class="text-sm text-surface-400">
+            <span class="lang-en">Issues welcome — <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/issues" target="_blank" rel="noopener">github.com/kasidit-wansudon/kasidit/issues</a></span>
+            <span class="lang-th">เปิด issue ได้ที่ — <a class="text-brand-500 hover:text-brand-hover" href="https://github.com/kasidit-wansudon/kasidit/issues" target="_blank" rel="noopener">github.com/kasidit-wansudon/kasidit/issues</a></span>
+          </p>
           <p class="mt-3 text-sm text-surface-400"><a class="hover:text-brand-hover transition" href="mailto:kasidit.wans@gmail.com">kasidit.wans@gmail.com</a></p>
         </section>
       </div>
