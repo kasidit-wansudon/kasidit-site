@@ -19,10 +19,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Primary Meta -->
-    <title>Kasidit · Mindful AI coding framework for Claude Code (v0.10)</title>
+    <title>Kasidit · Mindful AI coding framework for Claude Code (v0.11)</title>
     <meta
       name="description"
-      content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 5 runtime hooks, 12 default checklists. Works on Opus, Sonnet, Haiku. MIT."
+      content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists. Works on Opus, Sonnet, Haiku. MIT."
     />
     <meta
       name="keywords"
@@ -54,7 +54,7 @@
     />
     <meta
       property="og:description"
-      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.10: 5 modes, 8 specialist agents, 5 runtime hooks, 12 default checklists. MIT."
+      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.11: 5 modes, 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists. MIT."
     />
     <meta
       property="og:url"
@@ -73,7 +73,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.10.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.11.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
 
     <!-- Twitter / X (large image card) -->
@@ -92,7 +92,7 @@
     />
     <meta
       name="twitter:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.10.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.11.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
     <meta name="twitter:creator" content="@KasiditWans" />
     <meta name="twitter:site" content="@KasiditWans" />
@@ -106,10 +106,10 @@
         "name": "Kasidit",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Linux, Windows (via Claude Code)",
-        "description": "Mindful AI coding framework for Claude Code. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.10 ships 5 modes, 8 specialist agents, 5 runtime hooks, 12 default checklists.",
+        "description": "Mindful AI coding framework for Claude Code. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.11 ships 5 modes, 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists.",
         "url": "https://kasidit-wansudon.github.io/kasidit-site/",
         "image": "https://kasidit-wansudon.github.io/kasidit-site/assets/og.png",
-        "softwareVersion": "0.10.0",
+        "softwareVersion": "0.11.0",
         "license": "https://github.com/kasidit-wansudon/kasidit/blob/main/LICENSE",
         "codeRepository": "https://github.com/kasidit-wansudon/kasidit",
         "downloadUrl": "https://github.com/kasidit-wansudon/kasidit/releases",
@@ -357,7 +357,7 @@
               <span
                 class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"
               ></span>
-              Claude Code plugin &middot; v0.10.0 &middot;
+              Claude Code plugin &middot; v0.11.0 &middot;
               <span class="text-amber-400">&#128293; HOT</span>
             </p>
             <div
@@ -763,6 +763,209 @@
                 <span class="ext">&rarr;</span>
               </a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's new in v0.11 -->
+      <section
+        id="whats-new"
+        aria-labelledby="whats-new-title"
+        class="relative py-20 sm:py-24 border-t border-surface-800"
+      >
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 reveal">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-amber-500 mb-3"
+            >
+              v0.11 · 2026-04-30 · 6 new mission commands
+            </p>
+            <h2
+              id="whats-new-title"
+              class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4"
+            >
+              <span class="lang-en">What's new in v0.11</span>
+              <span class="lang-th">มีอะไรใหม่ใน v0.11</span>
+            </h2>
+            <p class="text-lg text-surface-400">
+              <span class="lang-en"
+                >Backend mission router, function call graph, project-state
+                cache (auto-bridge), DevOps planning, and replayable runbooks
+                — all under the same Master Orchestrator + tier discipline.</span
+              >
+              <span class="lang-th"
+                >Backend mission router, function call graph,
+                cache โครงสร้างโปรเจกต์ (auto-bridge), DevOps planning,
+                และ runbook สำหรับ replay — อยู่ใต้ Master Orchestrator
+                + tier discipline เดียวกัน</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children"
+          >
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-backend
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Backend mission router
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Multi-mode counterpart to <code class="font-mono">/kasi-ui</code>:
+                  <strong>fix · audit · scaffold · design · perf · security</strong>.
+                  Auto-detects Laravel / Node stacks.</span
+                >
+                <span class="lang-th"
+                  >คู่กับ <code class="font-mono">/kasi-ui</code> สำหรับ backend:
+                  <strong>fix · audit · scaffold · design · perf · security</strong>.
+                  ตรวจ stack Laravel / Node อัตโนมัติ</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-graph
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Function call graph
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Build, query, and extract a function-level subgraph
+                  (<code class="font-mono">extract · impact · trace · cycles · dead</code>)
+                  so audits scope to a slice instead of the whole repo.</span
+                >
+                <span class="lang-th"
+                  >สร้าง / query / extract subgraph ระดับฟังก์ชัน
+                  (<code class="font-mono">extract · impact · trace · cycles · dead</code>)
+                  ทำให้ audit จำกัดขอบเขตได้</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-struc
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Project structure cache
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Auto-bridge: every kasi-* command reads
+                  <code class="font-mono">.kasidit/STATE/</code> instead of
+                  rescanning. Incremental refresh via git diff. Append-only
+                  changelog.</span
+                >
+                <span class="lang-th"
+                  >Auto-bridge: kasi-* ทุกตัวอ่าน
+                  <code class="font-mono">.kasidit/STATE/</code> แทน rescan ใหม่.
+                  refresh ตาม git diff. changelog แบบ append-only</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-devopt
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                DevOps mission
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Deploy plan, env diff, data-flow map, secrets audit,
+                  runbook scaffold. <strong>Never executes</strong> the
+                  deploy itself — outputs the plan, you run it.</span
+                >
+                <span class="lang-th"
+                  >Deploy plan, env diff, data-flow map, secrets audit,
+                  runbook. <strong>ไม่รัน deploy เอง</strong> — เขียน plan,
+                  คุณรันเอง</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-acknowledge
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Capture runbook
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >After a manual deploy / migration / incident, capture the
+                  steps as a structured runbook in
+                  <code class="font-mono">.kasidit/knowledge/runbooks/</code>
+                  with auto-redaction.</span
+                >
+                <span class="lang-th"
+                  >หลัง deploy / migration / incident, เก็บ step เป็น runbook
+                  ใน <code class="font-mono">.kasidit/knowledge/runbooks/</code>
+                  redact secret อัตโนมัติ</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-knowledge-list
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Browse + replay
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >List runbooks (<code class="font-mono">recent · tag · kind · search · stale</code>),
+                  then <code class="font-mono">replay &lt;slug&gt;</code> to walk
+                  the steps interactively.</span
+                >
+                <span class="lang-th"
+                  >ลิสต์ runbook (<code class="font-mono">recent · tag · kind · search · stale</code>)
+                  แล้ว <code class="font-mono">replay &lt;slug&gt;</code>
+                  เดินทีละ step</span
+                >
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-12 text-center reveal">
+            <p class="text-sm text-surface-500">
+              <span class="lang-en"
+                >Plus 3 new backend checklists (Laravel · Node · API design),
+                a regex MVP function-graph parser, and a project-structure
+                cache builder. Read the full
+              </span>
+              <span class="lang-th"
+                >พร้อม checklist backend 3 ตัว (Laravel · Node · API design),
+                function-graph parser (regex MVP), และ structure cache builder.
+                อ่านเต็มที่
+              </span>
+              <a
+                href="https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md"
+                target="_blank"
+                rel="noopener"
+                class="text-amber-500 hover:text-amber-400 underline-offset-2 hover:underline"
+                >CHANGELOG <span class="ext">&rarr;</span></a
+              >
+            </p>
           </div>
         </div>
       </section>
@@ -3330,16 +3533,16 @@
               <div class="mt-4 text-sm text-surface-400 space-y-2">
                 <p>
                   <span class="lang-en"
-                    >v0.10 ships 12 default checklists covering
+                    >v0.11 ships 15 default checklists covering
                     <strong>PHP / Node / Python / Go</strong> across
                     <strong>code-review / security / perf</strong> lenses.
                     <code class="font-mono">/kasi-init</code> auto-pulls the
                     matches for your detected stack.</span
                   >
                   <span class="lang-th"
-                    >v0.10 มี 12 default checklist ครอบคลุม
+                    >v0.11 มี 15 default checklist ครอบคลุม
                     <strong>PHP / Node / Python / Go</strong> ×
-                    <strong>code-review / security / perf</strong>.
+                    <strong>code-review / security / perf / backend</strong>.
                     <code class="font-mono">/kasi-init</code> auto-pull
                     ที่ตรงกับ stack ที่ detect ได้</span
                   >
@@ -3473,7 +3676,7 @@
             <div class="flex items-center gap-2 mb-4">
               <span class="nav-logo" aria-hidden="true">.</span>
               <span class="font-bold text-surface-100">Kasidit</span>
-              <span class="font-mono text-xs text-amber-500 ml-2">v0.10.0</span>
+              <span class="font-mono text-xs text-amber-500 ml-2">v0.11.0</span>
             </div>
             <h2 id="foot-about" class="sr-only">About</h2>
             <p class="text-sm text-surface-400">
