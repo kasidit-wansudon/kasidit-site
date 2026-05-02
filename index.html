@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     <!-- Primary Meta -->
-    <title>Kasidit · Mindful AI coding framework for Claude Code (v0.11)</title>
+    <title>Kasidit · Mindful AI coding framework for Claude Code (v0.12)</title>
     <meta
       name="description"
       content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists. Works on Opus, Sonnet, Haiku. MIT."
@@ -54,7 +54,7 @@
     />
     <meta
       property="og:description"
-      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.11: 5 modes, 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists. MIT."
+      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.12: now runs on both Claude Code and thClaws. 5 modes, 8 specialist agents, 21 commands, 5 runtime hooks, 15 default checklists. MIT."
     />
     <meta
       property="og:url"
@@ -73,7 +73,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.11.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.12.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
 
     <!-- Twitter / X (large image card) -->
@@ -92,7 +92,7 @@
     />
     <meta
       name="twitter:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.11.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.12.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
     <meta name="twitter:creator" content="@KasiditWans" />
     <meta name="twitter:site" content="@KasiditWans" />
@@ -106,10 +106,10 @@
         "name": "Kasidit",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Linux, Windows (via Claude Code)",
-        "description": "Mindful AI coding framework for Claude Code. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.11 ships 5 modes, 8 specialist agents, 6 new mission commands, 5 runtime hooks, 15 default checklists.",
+        "description": "Mindful AI coding framework for Claude Code and thClaws. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. v0.12 ships multi-runtime support, 5 modes, 8 specialist agents, 21 commands, 5 runtime hooks, 15 default checklists.",
         "url": "https://kasidit-wansudon.github.io/kasidit-site/",
         "image": "https://kasidit-wansudon.github.io/kasidit-site/assets/og.png",
-        "softwareVersion": "0.11.0",
+        "softwareVersion": "0.12.0",
         "license": "https://github.com/kasidit-wansudon/kasidit/blob/main/LICENSE",
         "codeRepository": "https://github.com/kasidit-wansudon/kasidit",
         "downloadUrl": "https://github.com/kasidit-wansudon/kasidit/releases",
@@ -357,7 +357,7 @@
               <span
                 class="w-1.5 h-1.5 rounded-full bg-amber-500 animate-pulse"
               ></span>
-              Claude Code plugin &middot; v0.11.0 &middot;
+              Claude Code plugin &middot; v0.12.0 &middot;
               <span class="text-amber-400">&#128293; HOT</span>
             </p>
             <div
@@ -763,6 +763,222 @@
                 <span class="ext">&rarr;</span>
               </a>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- What's new in v0.12 -->
+      <section
+        id="whats-new-v12"
+        aria-labelledby="whats-new-v12-title"
+        class="relative py-20 sm:py-24 border-t border-surface-800"
+      >
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 reveal">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-amber-500 mb-3"
+            >
+              v0.12 · 2026-05-02 · multi-runtime 🦞
+            </p>
+            <h2
+              id="whats-new-v12-title"
+              class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4"
+            >
+              <span class="lang-en">What's new in v0.12</span>
+              <span class="lang-th">มีอะไรใหม่ใน v0.12</span>
+            </h2>
+            <p class="text-lg text-surface-400">
+              <span class="lang-en"
+                >Kasidit now runs on
+                <strong>both Claude Code and
+                <a href="https://github.com/thClaws/thClaws" target="_blank" rel="noopener" class="text-amber-400 hover:text-amber-300 underline-offset-2 hover:underline">thClaws</a></strong>
+                — the native Rust agent harness from ThaiGPT Co. Same SKILL.md, same 21
+                commands, same 8 specialist agents, same discipline framework — two
+                runtimes.</span
+              >
+              <span class="lang-th"
+                >Kasidit รัน
+                <strong>ได้ทั้ง Claude Code และ
+                <a href="https://github.com/thClaws/thClaws" target="_blank" rel="noopener" class="text-amber-400 hover:text-amber-300 underline-offset-2 hover:underline">thClaws</a></strong>
+                (native Rust agent harness จาก ThaiGPT Co.) — SKILL.md เดียวกัน 21 commands
+                เดียวกัน 8 specialist agents เดียวกัน discipline framework เดียวกัน
+                สอง runtime</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 stagger-children"
+          >
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                install-thclaws.sh
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Separate installer for thClaws
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Targets <code class="font-mono">~/.config/thclaws/</code>
+                  paths. Translates Claude Code's hook events into thClaws's
+                  shell-snippet format. Idempotent — safe to re-run.</span
+                >
+                <span class="lang-th"
+                  >ติดตั้งที่ <code class="font-mono">~/.config/thclaws/</code>
+                  แปลง hook events ของ Claude Code ไปเป็น shell-snippet ของ
+                  thClaws. รันซ้ำได้ปลอดภัย</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                hook event mapping
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                4 of 5 hooks adapted
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Direct ports for <code class="font-mono">session_start</code>,
+                  adapted for <code class="font-mono">post_tool_use</code> +
+                  <code class="font-mono">session_end</code>. Two
+                  <code class="font-mono">UserPromptSubmit</code> hooks skipped
+                  (no equivalent event yet).</span
+                >
+                <span class="lang-th"
+                  >Port ตรง <code class="font-mono">session_start</code>,
+                  Adapt <code class="font-mono">post_tool_use</code> +
+                  <code class="font-mono">session_end</code>. ข้าม 2 hooks
+                  ที่ผูก <code class="font-mono">UserPromptSubmit</code></span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                ~85% feature parity
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Discipline framework intact
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >SKILL.md rules (Master Orchestrator, tier-aware,
+                  confidence labels, mission-driven) are runtime-agnostic.
+                  All 21 commands, 8 agents, 15 checklists work
+                  identically.</span
+                >
+                <span class="lang-th"
+                  >SKILL.md rules (Master Orchestrator, tier-aware,
+                  confidence labels, mission-driven) ใช้ได้ทุก runtime.
+                  ครบทั้ง 21 commands, 8 agents, 15 checklists</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                .thclaws-plugin/
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Mirrored manifests
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Plugin manifests under
+                  <code class="font-mono">.thclaws-plugin/</code> parallel to
+                  the existing <code class="font-mono">.claude-plugin/</code>.
+                  Same metadata, same version (0.12.0), thClaws-aware
+                  keywords.</span
+                >
+                <span class="lang-th"
+                  >Plugin manifests ใต้
+                  <code class="font-mono">.thclaws-plugin/</code> คู่ขนานกับ
+                  <code class="font-mono">.claude-plugin/</code>. metadata
+                  เหมือนกัน version เดียวกัน (0.12.0)</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                docs/thclaws-setup.md
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Full guide for thClaws users
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Install / uninstall, hook event mapping, behavior
+                  differences vs Claude Code, recommended workflow. 139
+                  lines covering everything a thClaws user needs.</span
+                >
+                <span class="lang-th"
+                  >ติดตั้ง / ถอน, hook event mapping, ความแตกต่างจาก Claude
+                  Code, workflow แนะนำ. 139 บรรทัด ครอบคลุมทุกอย่าง</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                Built in Thailand 🇹🇭
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                Thai-built infrastructure
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Both Kasidit (this) and thClaws are built by Thai
+                  engineers. Same vision: open-source AI coding tools owned
+                  by the community, not the cloud.</span
+                >
+                <span class="lang-th"
+                  >ทั้ง Kasidit และ thClaws พัฒนาโดย dev คนไทย —
+                  vision เดียวกัน open-source AI coding ที่ community
+                  เป็นเจ้าของ ไม่ใช่ cloud</span
+                >
+              </p>
+            </article>
+          </div>
+
+          <div class="mt-12 text-center reveal">
+            <p class="text-sm text-surface-500">
+              <span class="lang-en"
+                >Read the full
+              </span>
+              <span class="lang-th"
+                >อ่านเต็มที่
+              </span>
+              <a
+                href="https://github.com/kasidit-wansudon/kasidit/wiki/v0.12.0"
+                target="_blank"
+                rel="noopener"
+                class="text-amber-500 hover:text-amber-400 underline-offset-2 hover:underline"
+                >v0.12.0 release notes <span class="ext">&rarr;</span></a
+              >
+              <span class="text-surface-600 mx-2">·</span>
+              <a
+                href="https://github.com/kasidit-wansudon/kasidit/blob/main/docs/thclaws-setup.md"
+                target="_blank"
+                rel="noopener"
+                class="text-amber-500 hover:text-amber-400 underline-offset-2 hover:underline"
+                >thClaws setup guide <span class="ext">&rarr;</span></a
+              >
+            </p>
           </div>
         </div>
       </section>
@@ -3676,7 +3892,7 @@
             <div class="flex items-center gap-2 mb-4">
               <span class="nav-logo" aria-hidden="true">.</span>
               <span class="font-bold text-surface-100">Kasidit</span>
-              <span class="font-mono text-xs text-amber-500 ml-2">v0.11.0</span>
+              <span class="font-mono text-xs text-amber-500 ml-2">v0.12.0</span>
             </div>
             <h2 id="foot-about" class="sr-only">About</h2>
             <p class="text-sm text-surface-400">
