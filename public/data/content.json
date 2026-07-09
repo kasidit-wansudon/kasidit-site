@@ -10,13 +10,13 @@
     "cta": { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" }
   },
   "hero": {
-    "eyebrow": "Claude Code plugin · v0.10.0 🔥 HOT",
-    "badge": "NEW in v0.10: runtime-enforced backend hooks · Mode system · audit-specialist merge",
+    "eyebrow": "Claude Code plugin · v0.16.0 🔥 HOT",
+    "badge": "NEW in v0.16: /kasi-deploy executes for real (Cloudflare/Vercel/Netlify) · /kasi-review-deploy stays read-only",
     "h1": "Mindful AI coding framework",
     "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure. v0.10 ships runtime backend — not just prompt-level convention.",
     "ctas": [
       { "label": "Get started", "href": "#install", "variant": "primary" },
-      { "label": "What's new v0.10", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
+      { "label": "What's new v0.16", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
     ]
   },
   "features": [
@@ -49,6 +49,11 @@
       "icon": "icon-orchestrator",
       "title": "🔥 Mode system (v0.10)",
       "body": "/kasi off / router / lite / full / ultra. Router default loads ~20 lines, escalates only when the work needs it. Heavy commands auto-escalate; revert on mission end. Context tax drops ~60% vs. always-on framework."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "🔥 Deploy split (v0.16)",
+      "body": "/kasi-deploy can now execute for real — auto-runs on CLI-native platforms (Cloudflare, Vercel, Netlify) behind a typed confirm gate for prod, plan-only fallback for SSH/manual platforms. /kasi-review-deploy stays permanently read-only for a safety check before anyone commits to a deploy."
     }
   ],
   "how": [
