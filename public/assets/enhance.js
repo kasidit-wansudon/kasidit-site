@@ -15,9 +15,22 @@
   var CMD_CATEGORY = {
     'kasi-init': 'project', 'kasi-scaffold': 'project', 'kasi-docs': 'project', 'kasi-status': 'project',
     'kasi-review': 'mission', 'kasi-security': 'mission', 'kasi-fix': 'mission',
-    'kasi-ui': 'mission', 'kasi-cascade': 'mission', 'kasi-multi': 'mission',
+    'kasi-ui': 'mission', 'kasi-cascade': 'mission', 'kasi-multi': 'mission', 'kasi-team': 'mission',
+    'kasi-backend': 'backend', 'kasi-graph': 'backend', 'kasi-struc': 'backend',
+    'kasi-devopt': 'devops', 'kasi-deploy': 'devops', 'kasi-review-deploy': 'devops',
+    'kasi-acknowledge': 'devops', 'kasi-knowledge-list': 'devops',
     'kasi-promote': 'gravity', 'kasi-pull': 'gravity', 'kasi-sync': 'gravity',
     'kasi-search': 'meta', 'kasi-wiki-sync': 'meta'
+  };
+
+  // Pill + category label translations. English is the catalog default;
+  // Thai variants render in a paired <span> so the site-wide lang toggle
+  // (html[data-lang] + .lang-en/.lang-th, see style.css) covers dynamically
+  // injected cards the same way it covers the static markup.
+  var CATEGORY_TH = {
+    'project': 'โปรเจกต์', 'mission': 'มิชชั่น', 'backend': 'แบ็กเอนด์',
+    'devops': 'เดฟออปส์', 'gravity': 'Gravity', 'meta': 'เมตา',
+    'specialist': 'ผู้เชี่ยวชาญ', 'command': 'คำสั่ง', 'skill': 'สกิล'
   };
 
   // GitHub wiki base — deep-link target for each gallery card.
@@ -68,14 +81,23 @@
   }
 
   function cardHtml(item) {
-    var name = escapeHtml(item.name);
-    var desc = escapeHtml(item.description);
-    var cat  = escapeHtml(categoryFor(item));
-    var href = escapeHtml(wikiUrlFor(item));
+    var name    = escapeHtml(item.name);
+    var descEn  = escapeHtml(item.description);
+    var descTh  = escapeHtml(item.description_th || item.description);
+    var cat     = categoryFor(item);
+    var catEn   = escapeHtml(cat);
+    var catTh   = escapeHtml(CATEGORY_TH[cat] || cat);
+    var href    = escapeHtml(wikiUrlFor(item));
     return '<a class="reveal skill-card" href="' + href + '" target="_blank" rel="noopener">' +
              '<h3 class="skill-title">' + name + '</h3>' +
-             '<p class="skill-meta">' + desc + '</p>' +
-             '<span class="pill">' + cat + '</span>' +
+             '<p class="skill-meta">' +
+               '<span class="lang-en">' + descEn + '</span>' +
+               '<span class="lang-th">' + descTh + '</span>' +
+             '</p>' +
+             '<span class="pill">' +
+               '<span class="lang-en">' + catEn + '</span>' +
+               '<span class="lang-th">' + catTh + '</span>' +
+             '</span>' +
              '<span class="ext" aria-hidden="true">&rarr;</span>' +
            '</a>';
   }

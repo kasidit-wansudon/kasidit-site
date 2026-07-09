@@ -3,126 +3,151 @@
     {
       "name": "kasi",
       "description": "Toggle Kasidit intensity — off / router / lite / full / ultra. Session-level by default; use `save` to persist.",
+      "description_th": "สลับความเข้มข้นของ Kasidit — off / router / lite / full / ultra ตั้งค่าระดับ session เป็นหลัก ใช้ `save` เพื่อบันทึกถาวร",
       "source_file": "commands/kasi.md"
     },
     {
       "name": "kasi-acknowledge",
       "description": "Capture the steps just performed (deploy/migration/hotfix/etc.) as a replayable runbook. Writes to .kasidit/knowledge/runbooks/.",
+      "description_th": "บันทึกขั้นตอนที่ทำเสร็จแล้ว (deploy/migration/hotfix ฯลฯ) เป็น runbook ที่เล่นซ้ำได้ เขียนไปที่ .kasidit/knowledge/runbooks/",
       "source_file": "commands/kasi-acknowledge.md"
     },
     {
       "name": "kasi-backend",
       "description": "Backend mission — multi-mode (fix/audit/scaffold/design/perf) for API/controller/service/route/DB work",
+      "description_th": "มิชชั่นฝั่ง backend — multi-mode (fix/audit/scaffold/design/perf) สำหรับงาน API/controller/service/route/DB",
       "source_file": "commands/kasi-backend.md"
     },
     {
       "name": "kasi-cascade",
       "description": "Tier cascade orchestration — Opus plans, Sonnet works, Haiku greps",
+      "description_th": "Tier cascade orchestration — Opus วางแผน, Sonnet ลงมือทำ, Haiku grep หา",
       "source_file": "commands/kasi-cascade.md"
     },
     {
       "name": "kasi-deploy",
       "description": "Deploy mission with a real execute path (v0.16) — auto-runs the deploy command on CLI-native platforms (Cloudflare, Vercel, Netlify) behind a confirm gate, plan-only fallback for SSH/manual platforms.",
+      "description_th": "มิชชั่น deploy ที่รันจริงได้ (v0.16) — auto-run คำสั่ง deploy บน platform ที่รองรับ CLI (Cloudflare, Vercel, Netlify) ผ่าน confirm gate, ตกเป็นแผนอย่างเดียวสำหรับ SSH/manual platform",
       "source_file": "commands/kasi-deploy.md"
     },
     {
       "name": "kasi-devopt",
       "description": "DevOps mission — infra, CI/CD, env vars, data structure connections, runbooks. Its deploy sub-mode is superseded by kasi-deploy / kasi-review-deploy (v0.16).",
+      "description_th": "มิชชั่น DevOps — infra, CI/CD, env vars, data structure connections, runbooks ส่วน deploy ถูกแทนที่ด้วย kasi-deploy / kasi-review-deploy (v0.16)",
       "source_file": "commands/kasi-devopt.md"
     },
     {
       "name": "kasi-docs",
       "description": "Fetch and cache version-matched official documentation",
+      "description_th": "ดึงและแคชเอกสารทางการที่ตรงเวอร์ชัน",
       "source_file": "commands/kasi-docs.md"
     },
     {
       "name": "kasi-fix",
       "description": "Bug fix mission with conservative discipline",
+      "description_th": "มิชชั่นแก้บั๊กแบบระมัดระวัง",
       "source_file": "commands/kasi-fix.md"
     },
     {
       "name": "kasi-graph",
       "description": "Function call graph — build/show/extract subgraph for scoped audit",
+      "description_th": "Function call graph — build/show/extract subgraph สำหรับ audit แบบจำกัดขอบเขต",
       "source_file": "commands/kasi-graph.md"
     },
     {
       "name": "kasi-init",
       "description": "Initialize project for Kasidit — chains scaffold + docs + review + registers auto-invoke",
+      "description_th": "Initialize โปรเจกต์สำหรับ Kasidit — ต่อ scaffold + docs + review + ลงทะเบียน auto-invoke",
       "source_file": "commands/kasi-init.md"
     },
     {
       "name": "kasi-knowledge-list",
       "description": "Browse stored runbooks and knowledge entries — pick one by number to print \"how to do it again\".",
+      "description_th": "เรียกดู runbook และ knowledge ที่บันทึกไว้ — เลือกด้วยเลขเพื่อพิมพ์ \"ทำยังไงอีกครั้ง\"",
       "source_file": "commands/kasi-knowledge-list.md"
     },
     {
       "name": "kasi-multi",
       "description": "Fan-out mode — dispatch N specialist agents in parallel for the current mission (sudo-fast execution)",
+      "description_th": "Fan-out mode — ส่ง N specialist agent ทำงานพร้อมกันสำหรับมิชชั่นปัจจุบัน (sudo-fast execution)",
       "source_file": "commands/kasi-multi.md"
     },
     {
       "name": "kasi-promote",
       "description": "Promote fact / pattern / knowledge from project .kasidit/ (dcenterlite) into global Centerlite hub",
+      "description_th": "ยก fact / pattern / knowledge จากโปรเจกต์ .kasidit/ (dcenterlite) ขึ้น Centerlite hub กลาง",
       "source_file": "commands/kasi-promote.md"
     },
     {
       "name": "kasi-pull",
       "description": "Pull item from Centerlite hub into local project .kasidit/ (dcenterlite)",
+      "description_th": "ดึง item จาก Centerlite hub เข้ามาที่ .kasidit/ ของโปรเจกต์ (dcenterlite)",
       "source_file": "commands/kasi-pull.md"
     },
     {
       "name": "kasi-review",
       "description": "Launch code review mission with Kasidit discipline",
+      "description_th": "เริ่มมิชชั่น code review ด้วยวินัยของ Kasidit",
       "source_file": "commands/kasi-review.md"
     },
     {
       "name": "kasi-review-deploy",
       "description": "Deploy readiness review (v0.16) — read-only preflight checklist, zero execution and zero file writes on any platform. Answers 'is it safe to deploy', not 'how do I deploy'.",
+      "description_th": "ตรวจความพร้อม deploy (v0.16) — เช็คลิสต์ read-only เท่านั้น ไม่รันไม่แก้ไฟล์บน platform ไหนเลย ตอบว่า \"deploy ได้ปลอดภัยไหม\" ไม่ใช่ \"deploy ยังไง\"",
       "source_file": "commands/kasi-review-deploy.md"
     },
     {
       "name": "kasi-scaffold",
       "description": "Build .kasidit/ knowledge structure for current project",
+      "description_th": "สร้างโครงสร้าง knowledge .kasidit/ สำหรับโปรเจกต์ปัจจุบัน",
       "source_file": "commands/kasi-scaffold.md"
     },
     {
       "name": "kasi-search",
       "description": "Semantic search over .kasidit/knowledge/ using local embeddings",
+      "description_th": "Semantic search บน .kasidit/knowledge/ ด้วย local embeddings",
       "source_file": "commands/kasi-search.md"
     },
     {
       "name": "kasi-security",
       "description": "Security audit mission with checklist-driven scanning",
+      "description_th": "Security audit มิชชั่นแบบ checklist-driven",
       "source_file": "commands/kasi-security.md"
     },
     {
       "name": "kasi-status",
       "description": "Show current mission state, counter, and context usage",
+      "description_th": "แสดงสถานะมิชชั่นปัจจุบัน, counter, และการใช้ context",
       "source_file": "commands/kasi-status.md"
     },
     {
       "name": "kasi-struc",
       "description": "Project structure index — file paths, module relations, function call graph, auto-bridged so AI doesn't rescan every time",
+      "description_th": "ดัชนีโครงสร้างโปรเจกต์ — file path, module relation, function call graph, auto-bridge ไม่ต้อง rescan ทุกครั้ง",
       "source_file": "commands/kasi-struc.md"
     },
     {
       "name": "kasi-sync",
       "description": "Audit diffs between project .kasidit/ (dcenterlite) and global Centerlite hub",
+      "description_th": "ตรวจความต่างระหว่าง .kasidit/ ของโปรเจกต์ (dcenterlite) กับ Centerlite hub กลาง",
       "source_file": "commands/kasi-sync.md"
     },
     {
       "name": "kasi-team",
       "description": "Team mode — HYBRID panel brainstorm + user decision gate + parallel dispatch + QA synthesis. Structured options before implementation, not just parallel execution.",
+      "description_th": "Team mode — panel brainstorm แบบ HYBRID + user decision gate + dispatch พร้อมกัน + QA synthesis ให้ตัดสินใจเลือก option ก่อนลงมือทำ ไม่ใช่แค่รันพร้อมกัน",
       "source_file": "commands/kasi-team.md"
     },
     {
       "name": "kasi-ui",
       "description": "UI/CSS fix mission with Override Mode",
+      "description_th": "มิชชั่นแก้ UI/CSS ด้วย Override Mode",
       "source_file": "commands/kasi-ui.md"
     },
     {
       "name": "kasi-wiki-sync",
       "description": "Sync docs/wiki/ content to github wiki repo (github.com/kasidit-wansudon/kasidit.wiki.git)",
+      "description_th": "sync เนื้อหา docs/wiki/ ขึ้น github wiki repo (github.com/kasidit-wansudon/kasidit.wiki.git)",
       "source_file": "commands/kasi-wiki-sync.md"
     }
   ],
@@ -130,41 +155,49 @@
     {
       "name": "architect-planner",
       "description": "Plan BEFORE code for new features, significant refactors, or changes touching more than 2 files. Returns step-by-step plan, file list, data flow, trade-offs. Does NOT write code.",
+      "description_th": "วางแผนก่อนเขียนโค้ด สำหรับฟีเจอร์ใหม่, refactor ใหญ่, หรือการเปลี่ยนแปลงที่กระทบมากกว่า 2 ไฟล์ คืนแผนทีละขั้น, รายการไฟล์, data flow, trade-off ไม่เขียนโค้ดเอง",
       "source_file": "agents/architect-planner.md"
     },
     {
       "name": "bug-hunter",
       "description": "Hunt down root cause of a reported bug. Use when test breaks, endpoint returns wrong data, stack trace appears, or user says \"why does X fail\". Returns minimal-change fix with reproduction.",
+      "description_th": "ตามหาต้นตอบั๊กที่รายงานมา ใช้เมื่อ test พัง, endpoint คืนข้อมูลผิด, มี stack trace, หรือถามว่าทำไม X ถึงพัง คืนการแก้แบบเปลี่ยนน้อยที่สุดพร้อมวิธี reproduce",
       "source_file": "agents/bug-hunter.md"
     },
     {
       "name": "audit-specialist",
       "description": "Multi-focus audit agent (v0.10) — review code quality, security, or performance depending on --focus=quality|security|perf|all. Replaces code-reviewer + security-auditor + perf-profiler.",
+      "description_th": "Agent ตรวจสอบอเนกประสงค์ (v0.10) — ตรวจ code quality, security, หรือ performance ตาม --focus=quality|security|perf|all แทนที่ code-reviewer + security-auditor + perf-profiler",
       "source_file": "agents/audit-specialist.md"
     },
     {
       "name": "deep-researcher",
       "description": "Deep investigation across docs, source, web for library/API/framework questions. Use when task needs version-matched docs, competitor analysis, or codebase survey before deciding. Returns findings + sources, never writes final code.",
+      "description_th": "ค้นหาเชิงลึกทั้ง docs, source, web สำหรับคำถามเรื่อง library/API/framework ใช้เมื่อต้องการเอกสารตรงเวอร์ชัน, วิเคราะห์คู่แข่ง, หรือสำรวจ codebase ก่อนตัดสินใจ คืนผลค้นหา + source ไม่เขียนโค้ดจริง",
       "source_file": "agents/deep-researcher.md"
     },
     {
       "name": "legacy-specialist",
       "description": "Navigate and modify legacy codebases (ZF1, old Rails, Vue 2, etc.) without breaking them",
+      "description_th": "นำทางและแก้ codebase เก่า (ZF1, Rails เก่า, Vue 2 ฯลฯ) โดยไม่ทำให้พัง",
       "source_file": "agents/legacy-specialist.md"
     },
     {
       "name": "migration-specialist",
       "description": "Handle schema changes, framework upgrades, and data backfills safely. Specialist on backward-compat + zero-downtime patterns. High-risk work — deserves dedicated context.",
+      "description_th": "จัดการ schema change, framework upgrade, และ data backfill อย่างปลอดภัย เชี่ยวชาญ backward-compat + zero-downtime pattern งานเสี่ยงสูง ควรมี context แยกเฉพาะ",
       "source_file": "agents/migration-specialist.md"
     },
     {
       "name": "refactor-surgeon",
       "description": "Apply a specific, scoped refactor — extract function, rename, dedupe, split file, inline. Use when user names the refactor explicitly. Does NOT decide whether to refactor, only how. Preserves behavior exactly.",
+      "description_th": "ทำ refactor แบบเจาะจงตามที่ขอ — extract function, rename, dedupe, split file, inline ใช้เมื่อ user บอกชัดว่าจะ refactor แบบไหน ไม่ตัดสินใจว่าควร refactor หรือไม่ แค่ทำตามที่บอก คงพฤติกรรมเดิมไว้เป๊ะ",
       "source_file": "agents/refactor-surgeon.md"
     },
     {
       "name": "test-writer",
       "description": "Write unit or integration tests for a specific function, class, or endpoint. Use when user asks for tests, after a bug fix (regression test), or to backfill coverage. Produces runnable test file + gap notes.",
+      "description_th": "เขียน unit หรือ integration test สำหรับ function, class, หรือ endpoint ที่ระบุ ใช้เมื่อ user ขอ test, หลังแก้บั๊ก (regression test), หรือเติม coverage ที่ขาด ส่งไฟล์ test ที่รันได้จริง + สรุป gap",
       "source_file": "agents/test-writer.md"
     }
   ]
