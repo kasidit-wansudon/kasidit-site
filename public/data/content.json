@@ -10,13 +10,13 @@
     "cta": { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" }
   },
   "hero": {
-    "eyebrow": "Claude Code plugin · v0.16.0 🔥 HOT",
-    "badge": "NEW in v0.16: /kasi-deploy executes for real (Cloudflare/Vercel/Netlify) · /kasi-review-deploy stays read-only",
+    "eyebrow": "Claude Code plugin · v0.16.1 🔥 HOT",
+    "badge": "v0.16.1: kasi-verify.py was silently dead on every real Stop event since v0.10 — fixed, now tested against real transcripts, not assumed payloads",
     "h1": "Mindful AI coding framework",
     "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure. v0.10 ships runtime backend — not just prompt-level convention.",
     "ctas": [
       { "label": "Get started", "href": "#install", "variant": "primary" },
-      { "label": "What's new v0.16", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
+      { "label": "What's new v0.16.1", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
     ]
   },
   "features": [
@@ -28,7 +28,7 @@
     {
       "icon": "icon-checklist",
       "title": "Checklists",
-      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes. 12 default checklists ship (4 stacks × 3 lenses)."
+      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes. 18 default checklists ship — security, code-review, perf, and backend across 4 languages, plus money, date/time, and locale checklists selected by mission domain."
     },
     {
       "icon": "icon-tier",
@@ -42,17 +42,22 @@
     },
     {
       "icon": "icon-checklist",
-      "title": "🔥 Backend hooks (v0.10)",
-      "body": "Real runtime enforcement — not just prompt convention. kasidit-route.py classifies prompts. kasidit-verify.py auto-downgrades unverified [high] claims. kasidit-record.py grows a route-memory.jsonl so the router learns the shortest successful path per mission kind over time."
+      "title": "Backend hooks",
+      "body": "Real runtime enforcement — not just prompt convention. kasi-route.py classifies prompts. kasi-verify.py checks that a `verified: <cmd>` claim actually ran as a Bash call this turn. kasi-record.py grows a route-memory.jsonl so the router learns the shortest successful path per mission kind over time."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "🔥 Hook contract fix (v0.16.1)",
+      "body": "kasi-verify.py and kasi-record.py read payload fields the real Claude Code Stop event never sends — dead since v0.10, masked by a silent except. Fixed by reading transcript_path and reconstructing the turn; tested against real captured transcripts, not the payload shape the hooks themselves assumed. Confidence labels reworked alongside it: [high] retired as a self-graded label, [unverified]/[assumed]/[unknown] mark the exception, and a `verified: <cmd>` citation replaces [high] — checked against the command that actually ran."
     },
     {
       "icon": "icon-orchestrator",
-      "title": "🔥 Mode system (v0.10)",
+      "title": "Mode system",
       "body": "/kasi off / router / lite / full / ultra. Router default loads ~20 lines, escalates only when the work needs it. Heavy commands auto-escalate; revert on mission end. Context tax drops ~60% vs. always-on framework."
     },
     {
       "icon": "icon-checklist",
-      "title": "🔥 Deploy split (v0.16)",
+      "title": "Deploy split (v0.16)",
       "body": "/kasi-deploy can now execute for real — auto-runs on CLI-native platforms (Cloudflare, Vercel, Netlify) behind a typed confirm gate for prod, plan-only fallback for SSH/manual platforms. /kasi-review-deploy stays permanently read-only for a safety check before anyone commits to a deploy."
     }
   ],
