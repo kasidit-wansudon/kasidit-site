@@ -149,6 +149,18 @@
       "description": "Sync docs/wiki/ content to github wiki repo (github.com/kasidit-wansudon/kasidit.wiki.git)",
       "description_th": "sync เนื้อหา docs/wiki/ ขึ้น github wiki repo (github.com/kasidit-wansudon/kasidit.wiki.git)",
       "source_file": "commands/kasi-wiki-sync.md"
+    },
+    {
+      "name": "kasi-main",
+      "description": "Pinned rules (main.md) — reply language asked on first run, re-sent every prompt, checked before the turn ends",
+      "description_th": "กฎที่ปักหมุด (main.md) — ถามภาษาที่ตอบตอนใช้ครั้งแรก ส่งซ้ำทุก prompt และตรวจก่อนจบรอบ",
+      "source_file": "commands/kasi-main.md"
+    },
+    {
+      "name": "kasi-diagram",
+      "description": "Interactive diagram mission — soft bridge to Archify (architecture/workflow/sequence/dataflow/lifecycle) with selectable UI language",
+      "description_th": "ทำ diagram แบบ interactive — เชื่อมกับ Archify (architecture/workflow/sequence/dataflow/lifecycle) เลือกภาษา UI ได้",
+      "source_file": "commands/kasi-diagram.md"
     }
   ],
   "agents": [

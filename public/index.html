@@ -22,7 +22,7 @@
     <title>Kasidit · Mindful AI coding framework for Claude Code (v0.16)</title>
     <meta
       name="description"
-      content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 25 mission commands, 5 runtime hooks, 15 default checklists. Works on Opus, Sonnet, Haiku. MIT."
+      content="Kasidit makes AI coding grounded instead of hallucinated. 5 modes (off/router/lite/full/ultra), 8 specialist agents, 27 mission commands, 7 runtime hooks, 15 default checklists. Works on Opus, Sonnet, Haiku. MIT."
     />
     <meta
       name="keywords"
@@ -54,7 +54,7 @@
     />
     <meta
       property="og:description"
-      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. Runs on both Claude Code and thClaws (consolidated install). 5 modes, 8 specialist agents, 25 commands, 5 runtime hooks, 15 default checklists. MIT."
+      content="Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. Runs on both Claude Code and thClaws (consolidated install). 5 modes, 8 specialist agents, 27 commands, 7 runtime hooks, 15 default checklists. MIT."
     />
     <meta
       property="og:url"
@@ -73,7 +73,7 @@
     <meta property="og:image:height" content="630" />
     <meta
       property="og:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.16.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.16.0. 5 modes / 8 specialists / 7 runtime hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
 
     <!-- Twitter / X (large image card) -->
@@ -92,7 +92,7 @@
     />
     <meta
       name="twitter:image:alt"
-      content="Kasidit — Mindful AI coding framework. v0.16.0. 5 modes / 8 specialists / 5 backend hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
+      content="Kasidit — Mindful AI coding framework. v0.16.0. 5 modes / 8 specialists / 7 runtime hooks / works on Opus, Sonnet, Haiku. 87.5% valid fix rate on SWE-bench Lite sample."
     />
     <meta name="twitter:creator" content="@KasiditWans" />
     <meta name="twitter:site" content="@KasiditWans" />
@@ -106,7 +106,7 @@
         "name": "Kasidit",
         "applicationCategory": "DeveloperApplication",
         "operatingSystem": "macOS, Linux, Windows (via Claude Code)",
-        "description": "Mindful AI coding framework for Claude Code and thClaws. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. Multi-runtime support, 5 modes, 8 specialist agents, 25 commands, 5 runtime hooks, 15 default checklists.",
+        "description": "Mindful AI coding framework for Claude Code and thClaws. Discipline over cleverness. Works on any model tier — Opus, Sonnet, Haiku. Multi-runtime support, 5 modes, 8 specialist agents, 27 commands, 7 runtime hooks, 15 default checklists.",
         "url": "https://kasidit-wansudon.github.io/kasidit-site/",
         "image": "https://kasidit-wansudon.github.io/kasidit-site/assets/og.png",
         "softwareVersion": "0.16.0",
@@ -764,6 +764,151 @@
               </a>
             </article>
           </div>
+        </div>
+      </section>
+
+      <!-- New: pinned rules (main.md) -->
+      <section
+        id="whats-new-main"
+        aria-labelledby="whats-new-main-title"
+        class="relative py-20 sm:py-24 border-t border-surface-800"
+      >
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="max-w-3xl mb-12 reveal">
+            <p
+              class="font-mono text-xs uppercase tracking-widest text-amber-500 mb-3"
+            >
+              new · 2026-11-19 · pinned rules
+            </p>
+            <h2
+              id="whats-new-main-title"
+              class="text-3xl md:text-4xl font-bold tracking-tight text-white mb-4"
+            >
+              <span class="lang-en">Your AI stops ignoring your rules</span>
+              <span class="lang-th">AI เลิกลืมกฎของคุณ</span>
+            </h2>
+            <p class="text-lg text-surface-400">
+              <span class="lang-en"
+                >You write "reply in Thai" in <code class="font-mono">CLAUDE.md</code>.
+                It works — until the session gets long or Claude compacts, and the AI
+                drifts back to its defaults. <code class="font-mono">CLAUDE.md</code>
+                is loaded once; nothing re-sends it. Kasidit's
+                <code class="font-mono">main.md</code> does.</span
+              >
+              <span class="lang-th"
+                >คุณเขียนว่า "ตอบภาษาไทย" ไว้ใน <code class="font-mono">CLAUDE.md</code>
+                ก็ได้ผลอยู่พักหนึ่ง พอคุยยาวหรือ Claude compact บริบท AI ก็กลับไปตอบแบบเดิม
+                เพราะ <code class="font-mono">CLAUDE.md</code> โหลดแค่ครั้งเดียว ไม่มีอะไรส่งซ้ำ
+                <code class="font-mono">main.md</code> ของ Kasidit ทำหน้าที่นั้น</span
+              >
+            </p>
+          </div>
+
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 stagger-children"
+          >
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                first run
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                <span class="lang-en">Asks your language first</span>
+                <span class="lang-th">ถามภาษาก่อนเป็นอย่างแรก</span>
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Before any other work, the AI asks which language to reply in
+                  and saves it. 18 languages. Then offers to import rules from your
+                  existing <code class="font-mono">CLAUDE.md</code>.</span
+                >
+                <span class="lang-th"
+                  >ก่อนทำงานอื่น AI จะถามว่าให้ตอบภาษาอะไรแล้วบันทึกไว้ รองรับ 18 ภาษา
+                  จากนั้นเสนอดึงกฎจาก <code class="font-mono">CLAUDE.md</code> เดิมมาใช้</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                every prompt
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                <span class="lang-en">Re-sent every turn</span>
+                <span class="lang-th">ส่งซ้ำทุก prompt</span>
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Your language rule and <code class="font-mono">## Always</code>
+                  lines ride on every prompt. The full file is re-sent after every
+                  compact.</span
+                >
+                <span class="lang-th"
+                  >กฎภาษาและส่วน <code class="font-mono">## Always</code> แนบไปกับทุก prompt
+                  และส่งไฟล์เต็มซ้ำทุกครั้งหลัง compact</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                before the turn ends
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                <span class="lang-en">Language is checked</span>
+                <span class="lang-th">ตรวจภาษาก่อนจบ</span>
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >A reply in a foreign script is blocked once and rewritten. Code
+                  and quoted text are ignored; English code terms always pass.</span
+                >
+                <span class="lang-th"
+                  >ถ้าคำตอบมีอักษรภาษาอื่น จะถูก block แล้วให้เขียนใหม่ ไม่นับโค้ดและข้อความที่ quote
+                  คำศัพท์โค้ดภาษาอังกฤษผ่านเสมอ</span
+                >
+              </p>
+            </article>
+
+            <article class="reveal card-base p-6">
+              <div
+                class="font-mono text-xs uppercase tracking-wider text-surface-500 mb-2"
+              >
+                /kasi-main
+              </div>
+              <h3 class="text-lg font-semibold text-surface-100 mb-3">
+                <span class="lang-en">One file, two scopes</span>
+                <span class="lang-th">ไฟล์เดียว สองระดับ</span>
+              </h3>
+              <p class="text-sm text-surface-400">
+                <span class="lang-en"
+                  >Global rules plus per-project <code class="font-mono">.kasidit/main.md</code>.
+                  Manage with <code class="font-mono">show · language · add · allow · import</code>.</span
+                >
+                <span class="lang-th"
+                  >กฎกลางทุกโปรเจกต์ บวก <code class="font-mono">.kasidit/main.md</code> รายโปรเจกต์
+                  จัดการด้วย <code class="font-mono">show · language · add · allow · import</code></span
+                >
+              </p>
+            </article>
+          </div>
+
+          <p class="mt-8 text-sm text-surface-500 max-w-3xl reveal">
+            <span class="lang-en"
+              >Honest limit: re-sending a rule makes the AI see it every turn — it
+              doesn't force compliance. Only the reply language is enforced, because
+              only that can be checked by code.</span
+            >
+            <span class="lang-th"
+              >ข้อจำกัดตามจริง: การส่งกฎซ้ำทำให้ AI เห็นกฎทุกรอบ แต่ไม่ได้บังคับให้ทำตาม
+              ข้อที่บังคับได้จริงมีแค่ภาษาที่ตอบ เพราะเป็นข้อเดียวที่ตรวจด้วยโค้ดได้</span
+            >
+          </p>
         </div>
       </section>
 
