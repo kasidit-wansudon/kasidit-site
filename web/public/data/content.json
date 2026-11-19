@@ -1,0 +1,110 @@
+{
+  "nav": {
+    "brand": "Kasidit",
+    "links": [
+      { "label": "Features", "href": "#features" },
+      { "label": "How it works", "href": "#how" },
+      { "label": "Evidence", "href": "#evidence" },
+      { "label": "Install", "href": "#install" }
+    ],
+    "cta": { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" }
+  },
+  "hero": {
+    "eyebrow": "Claude Code plugin · v0.16.1 🔥 HOT",
+    "badge": "v0.16.1: kasi-verify.py was silently dead on every real Stop event since v0.10 — fixed, now tested against real transcripts, not assumed payloads",
+    "h1": "Mindful AI coding framework",
+    "subhead": "Discipline over cleverness. Works on any model tier, compensating for weaker reasoning with external structure. v0.10 ships runtime backend — not just prompt-level convention.",
+    "ctas": [
+      { "label": "Get started", "href": "#install", "variant": "primary" },
+      { "label": "What's new v0.16.1", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md", "variant": "ghost" }
+    ]
+  },
+  "features": [
+    {
+      "icon": "icon-gravity",
+      "title": "Gravity Pattern",
+      "body": "External structure replaces internal willpower. The agent stays on-mission because the framework pulls it back, not because it remembers to."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "Checklists",
+      "body": "Pre-flight and post-flight gates on every task. Runtime is the judge, not vibes. 18 default checklists ship — security, code-review, perf, and backend across 4 languages, plus money, date/time, and locale checklists selected by mission domain."
+    },
+    {
+      "icon": "icon-tier",
+      "title": "Tier-aware",
+      "body": "Routes work by model strength. Weaker tiers get more scaffolding, stronger tiers get more autonomy."
+    },
+    {
+      "icon": "icon-orchestrator",
+      "title": "Master Orchestrator",
+      "body": "One planner narrows the mission and delegates to specialists. Results are synthesized with explicit confidence labels."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "Backend hooks",
+      "body": "Real runtime enforcement — not just prompt convention. kasi-route.py classifies prompts. kasi-verify.py checks that a `verified: <cmd>` claim actually ran as a Bash call this turn. kasi-record.py grows a route-memory.jsonl so the router learns the shortest successful path per mission kind over time."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "🔥 Hook contract fix (v0.16.1)",
+      "body": "kasi-verify.py and kasi-record.py read payload fields the real Claude Code Stop event never sends — dead since v0.10, masked by a silent except. Fixed by reading transcript_path and reconstructing the turn; tested against real captured transcripts, not the payload shape the hooks themselves assumed. Confidence labels reworked alongside it: [high] retired as a self-graded label, [unverified]/[assumed]/[unknown] mark the exception, and a `verified: <cmd>` citation replaces [high] — checked against the command that actually ran."
+    },
+    {
+      "icon": "icon-orchestrator",
+      "title": "Mode system",
+      "body": "/kasi off / router / lite / full / ultra. Router default loads ~20 lines, escalates only when the work needs it. Heavy commands auto-escalate; revert on mission end. Context tax drops ~60% vs. always-on framework."
+    },
+    {
+      "icon": "icon-checklist",
+      "title": "Deploy split (v0.16)",
+      "body": "/kasi-deploy can now execute for real — auto-runs on CLI-native platforms (Cloudflare, Vercel, Netlify) behind a typed confirm gate for prod, plan-only fallback for SSH/manual platforms. /kasi-review-deploy stays permanently read-only for a safety check before anyone commits to a deploy."
+    }
+  ],
+  "how": [
+    {
+      "step": "01",
+      "title": "Narrow the mission",
+      "body": "Define the concrete deliverable before touching code. Ambiguity gets resolved on paper, not at runtime."
+    },
+    {
+      "step": "02",
+      "title": "Dispatch specialists",
+      "body": "Sub-agents handle research, code, and review in isolated contexts. Each returns structured findings, not prose."
+    },
+    {
+      "step": "03",
+      "title": "Synthesize with confidence",
+      "body": "The orchestrator merges outputs and flags disagreements. Only work that passes the checklist ships."
+    }
+  ],
+  "install": {
+    "intro": "Three lines in Claude Code (v0.10):",
+    "snippets": [
+      "/plugin marketplace add kasidit-wansudon/kasidit",
+      "/plugin install kasidit@kasidit",
+      "/kasi-init"
+    ],
+    "note": "kasi-init wires 6 runtime hooks into ~/.claude/settings.json, seeds the Gravity hub, and asks one question (default mode). For manual hook install without the plugin marketplace, run plugins/kasidit/install.sh from the cloned repo."
+  },
+  "evidence": [
+    { "number": "60.7%", "caption": "SWE-bench Lite strict PASS (34/56)" },
+    { "number": "87.5%", "caption": "Valid fix rate (49/56)" },
+    { "number": "100%", "caption": "7-task Opus valid (6/7 PASS)" },
+    { "number": "0", "caption": "FAIL on 15-task curated" }
+  ],
+  "footer": {
+    "about": "Kasidit is an open-source framework for disciplined AI coding. Built by Kasidit Wansudon, self-taught Thai engineer.",
+    "links": [
+      { "label": "GitHub", "href": "https://github.com/kasidit-wansudon/kasidit" },
+      { "label": "Wiki", "href": "https://github.com/kasidit-wansudon/kasidit/wiki" },
+      { "label": "Changelog", "href": "https://github.com/kasidit-wansudon/kasidit/blob/main/CHANGELOG.md" },
+      { "label": "Releases", "href": "https://github.com/kasidit-wansudon/kasidit/releases" }
+    ],
+    "community": [
+      { "label": "Report issue", "href": "https://github.com/kasidit-wansudon/kasidit/issues" },
+      { "label": "Email", "href": "mailto:kasidit.wans@gmail.com" }
+    ],
+    "copyright": "© 2026 Kasidit Wansudon · MIT License"
+  }
+}
