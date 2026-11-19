@@ -69,6 +69,17 @@ const HOOKS: Item[] = [
     isNew: true,
   },
   {
+    id: 'kasi-status-nudge.py',
+    kind: 'hook',
+    title: 'kasi-status-nudge.py',
+    description: {
+      en: 'During long work — after 8 tool calls or 2 minutes without a word to you, the AI is told to post a short status (done / doing / next), then carry on.',
+      th: 'ระหว่างงานนาน — ถ้าผ่านไป 8 tool call หรือ 2 นาทีโดยไม่บอกอะไรคุณ AI จะถูกสั่งให้เขียนสถานะสั้น ๆ (เสร็จแล้ว / กำลังทำ / ต่อไป) แล้วทำงานต่อ',
+    },
+    url: `${SRC}/hooks/kasi-status-nudge.py`,
+    isNew: true,
+  },
+  {
     id: 'kasi-verify.py',
     kind: 'hook',
     title: 'kasi-verify.py',
