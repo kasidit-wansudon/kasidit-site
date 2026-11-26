@@ -1,7 +1,7 @@
 import catalog from '../../public/data/catalog.json';
 import type { Text } from '../i18n';
 
-export const VERSION = 'v0.17';
+export const VERSION = 'v0.18';
 export const REPO = 'https://github.com/kasidit-wansudon/kasidit';
 const SRC = `${REPO}/blob/main/plugins/kasidit`;
 
@@ -19,9 +19,9 @@ export interface Item {
 
 type CatalogEntry = { name: string; description: string; description_th: string; source_file: string };
 
-const NEW = new Set(['kasi-main', 'kasi-diagram']);
+const NEW = new Set(['kasi-delegate', 'kasi-main', 'kasi-diagram']);
 // Order = position in the grid: headline feature first.
-const FEATURED_ORDER = ['kasi-main', 'kasi-team'];
+const FEATURED_ORDER = ['kasi-delegate', 'kasi-main', 'kasi-team'];
 const FEATURED = new Set(FEATURED_ORDER);
 
 const fromCatalog = (entries: CatalogEntry[], kind: Kind): Item[] =>

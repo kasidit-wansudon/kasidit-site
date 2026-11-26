@@ -161,6 +161,12 @@
       "description": "Interactive diagram mission — soft bridge to Archify (architecture/workflow/sequence/dataflow/lifecycle) with selectable UI language",
       "description_th": "ทำ diagram แบบ interactive — เชื่อมกับ Archify (architecture/workflow/sequence/dataflow/lifecycle) เลือกภาษา UI ได้",
       "source_file": "commands/kasi-diagram.md"
+    },
+    {
+      "name": "kasi-delegate",
+      "description": "Delegate mode — Claude plans and reviews, GPT (Codex CLI) and Gemini (Antigravity CLI) execute; global share settings with an auto strategy",
+      "description_th": "โหมดส่งต่องาน — Claude วางแผนและตรวจงาน ให้ GPT (Codex CLI) และ Gemini (Antigravity CLI) ลงมือทำ ตั้งสัดส่วนแบบ global และมีโหมด auto",
+      "source_file": "commands/kasi-delegate.md"
     }
   ],
   "agents": [

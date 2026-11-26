@@ -1,4 +1,4 @@
-import { Languages, RefreshCw, ShieldCheck } from 'lucide-react';
+import { Bot, Languages, RefreshCw, ShieldCheck, Sparkles, Workflow } from 'lucide-react';
 import { BENCHMARK } from '../data/site';
 import { useLang } from '../i18n';
 
@@ -103,6 +103,127 @@ allow_scripts: chinese  `}<span className="text-surface-500"># optional</span>{`
                 th: 'ข้อจำกัดตามจริง: การส่งกฎซ้ำทำให้ AI เห็นกฎทุกรอบ แต่ไม่ได้บังคับให้ทำตาม ข้อที่บังคับได้จริงมีแค่ภาษาที่ตอบ เพราะเป็นข้อเดียวที่ตรวจด้วยโค้ดได้',
               })}
             </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+export function Delegate() {
+  const { t } = useLang();
+  const steps = [
+    {
+      icon: Workflow,
+      who: 'Claude',
+      title: { en: 'Plans and splits', th: 'วางแผนและแตกงาน' },
+      body: {
+        en: 'You keep talking to Claude. It designs the change and splits it into sub-tasks with a precise spec for each.',
+        th: 'คุณคุยกับ Claude เหมือนเดิม Claude ออกแบบงานแล้วแตกเป็นงานย่อย พร้อมสเปกที่ชัดของแต่ละงาน',
+      },
+    },
+    {
+      icon: Bot,
+      who: 'GPT · Gemini',
+      title: { en: 'Execute, sandboxed', th: 'ลงมือทำในกรอบที่จำกัด' },
+      body: {
+        en: 'Codex CLI and Antigravity CLI write code or images. They can edit files in the workdir only — no shell, no --dangerously-* flags.',
+        th: 'Codex CLI และ Antigravity CLI เขียนโค้ดหรือสร้างภาพ แก้ไฟล์ได้เฉพาะในโฟลเดอร์งาน รันคำสั่งไม่ได้ และไม่ใช้แฟล็ก --dangerously-*',
+      },
+    },
+    {
+      icon: ShieldCheck,
+      who: 'Claude',
+      title: { en: 'Reviews, then reports', th: 'ตรวจก่อน แล้วค่อยรายงาน' },
+      body: {
+        en: 'Claude reads the diff, runs the tests and opens every image before you see it. Nothing is committed for you.',
+        th: 'Claude อ่าน diff รันเทสต์ และเปิดดูทุกภาพก่อนส่งให้คุณ ไม่มีการ commit แทนคุณ',
+      },
+    },
+  ];
+  const shares = [
+    { name: 'claude', pct: 40, cls: 'bg-brand-500' },
+    { name: 'gpt', pct: 30, cls: 'bg-emerald-500' },
+    { name: 'gemini', pct: 30, cls: 'bg-sky-500' },
+  ];
+
+  return (
+    <section id="delegate" className="scroll-mt-24 px-4 py-28">
+      <div className="mx-auto max-w-7xl">
+        <div className="max-w-3xl">
+          <Kicker>{t({ en: 'New in v0.18 · /kasi-delegate', th: 'ใหม่ใน v0.18 · /kasi-delegate' })}</Kicker>
+          <h2 className="mt-3 text-4xl font-medium tracking-[-0.045em] md:text-6xl">
+            {t({ en: 'Talk to Claude.', th: 'คุยกับ Claude' })}
+            <br />
+            <span className="text-gradient">{t({ en: 'Claude commands the rest.', th: 'ให้ Claude สั่งตัวอื่นทำ' })}</span>
+          </h2>
+          <p className="mt-5 text-lg leading-relaxed text-surface-400">
+            {t({
+              en: 'GPT and Gemini are strong executors, but you are used to Claude. Kasidit keeps Claude as planner and reviewer and hands execution to the other models — with a global share setting and an auto strategy where Claude decides who does each sub-task, or skips delegation that round.',
+              th: 'GPT กับ Gemini ลงมือทำงานได้เก่ง แต่คุณคุ้นกับ Claude Kasidit จึงให้ Claude เป็นคนวางแผนและตรวจงาน แล้วส่งงานลงมือให้โมเดลอื่น ตั้งสัดส่วนได้แบบ global และมีโหมด auto ที่ Claude เลือกเองว่างานย่อยไหนใครทำ หรือไม่ส่งต่อเลยในรอบนั้น',
+            })}
+          </p>
+        </div>
+
+        <div className="mt-12 grid gap-4 md:grid-cols-3">
+          {steps.map((s, i) => {
+            const Icon = s.icon;
+            return (
+              <div key={i} className="tool-card min-h-0">
+                <span className="tool-card-spot" aria-hidden="true" />
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="grid h-11 w-11 place-items-center rounded-2xl border border-brand-500/30 bg-brand-500/10 text-brand-400">
+                      <Icon className="h-5 w-5" strokeWidth={1.7} />
+                    </span>
+                    <span className="font-mono text-xs text-surface-500">0{i + 1}</span>
+                  </div>
+                  <p className="mt-6 text-[11px] font-medium uppercase tracking-[0.22em] text-surface-500">{s.who}</p>
+                  <h3 className="mt-2 text-xl font-medium tracking-tight text-surface-100">{t(s.title)}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-surface-400">{t(s.body)}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="mt-4 grid gap-4 lg:grid-cols-[1.2fr_1fr]">
+          <pre className="overflow-x-auto rounded-[28px] border border-surface-800 bg-[#0a0d12] p-6 font-mono text-[13px] leading-relaxed text-surface-300">
+{`S=~/.claude/skills/kasidit/scripts/kasi_delegate.sh
+$S config on                `}<span className="text-surface-500"># off by default</span>{`
+$S config set claude=40 gpt=30 gemini=30
+$S config strategy auto     `}<span className="text-surface-500"># Claude decides</span>{`
+$S stats                    `}<span className="text-surface-500"># actual vs target</span>{`
+$S both image ./out p.txt   `}<span className="text-surface-500"># GPT vs Gemini</span>
+          </pre>
+          <div className="tool-card min-h-0">
+            <span className="tool-card-spot" aria-hidden="true" />
+            <div className="relative z-10">
+              <div className="flex items-center gap-2 text-brand-400">
+                <Sparkles className="h-4 w-4" strokeWidth={1.8} />
+                <p className="text-[11px] font-medium uppercase tracking-[0.22em] text-surface-500">
+                  {t({ en: 'Share = soft target', th: 'สัดส่วน = เป้าหมายแบบยืดหยุ่น' })}
+                </p>
+              </div>
+              <div className="mt-5 flex h-3 overflow-hidden rounded-full bg-surface-800">
+                {shares.map((s) => (
+                  <span key={s.name} className={s.cls} style={{ width: `${s.pct}%` }} />
+                ))}
+              </div>
+              <div className="mt-3 flex justify-between font-mono text-xs text-surface-400">
+                {shares.map((s) => (
+                  <span key={s.name}>
+                    {s.name} {s.pct}%
+                  </span>
+                ))}
+              </div>
+              <p className="mt-5 text-sm leading-relaxed text-surface-400">
+                {t({
+                  en: 'Claude keeps architecture, hard bugs, secrets and real data, and tiny edits. Well-specified work — CRUD, tests, docs, images — goes out. stats keeps the split near your target over time.',
+                  th: 'Claude เก็บงานสถาปัตยกรรม บั๊กยาก งานที่แตะ secrets หรือข้อมูลจริง และงานแก้เล็กๆ ไว้เอง ส่วนงานที่สเปกชัด เช่น CRUD เทสต์ เอกสาร และภาพ ส่งออกไปทำ คำสั่ง stats ช่วยคุมสัดส่วนให้ใกล้เป้าในระยะยาว',
+                })}
+              </p>
+            </div>
           </div>
         </div>
       </div>

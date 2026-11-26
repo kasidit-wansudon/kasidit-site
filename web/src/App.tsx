@@ -4,7 +4,7 @@ import CommandPalette from './components/CommandPalette';
 import DotField from './components/DotField';
 import ItemCard from './components/ItemCard';
 import Terminal from './components/Terminal';
-import { Benchmark, PinnedRules } from './components/Sections';
+import { Benchmark, Delegate, PinnedRules } from './components/Sections';
 import { COUNTS, ITEMS, LINKS, REPO, VERSION, type Kind } from './data/site';
 import { useLang, type Text } from './i18n';
 
@@ -215,6 +215,8 @@ export default function App() {
             ))}
           </div>
         </section>
+
+        <Delegate />
 
         <PinnedRules />
 
